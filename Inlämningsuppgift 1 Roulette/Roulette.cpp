@@ -66,7 +66,7 @@ int main()
 		
 			if (val == 'N' || val == 'n') 
 			{
-				cout << "Du får nu välja ett nummer mellan 1 - 36  " << endl;
+				cout << "Du far nu välja ett nummer mellan 1 - 36  " << endl;
 				int nummer; //add check for range 
 				cin >> nummer;
 				cout << "Du ha valt; " << nummer << endl;
