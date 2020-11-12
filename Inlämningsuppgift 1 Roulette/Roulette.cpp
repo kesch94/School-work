@@ -74,19 +74,15 @@ int main() //Main funktionen
 		
 			if (val == 'N' || val == 'n') //Om valet är N (Nummer)
 			{
-<<<<<<< HEAD
 				cout << "Du får nu välja ett nummer mellan 1 - 36  " << endl; //Meddelande om att spelaren ska välja nummer
 				int nummer; //Definierar nummer med datatyp integet
 				cin >> nummer; //Input önskat nummer spelaren vill spela på
 				cout << "Du har valt; " << nummer << endl; //Output där spelaren ser vilket nummer hen har valt
 				cout << "Lycka till! \n" << endl; //Meddelande
-=======
 				cout << "Du far nu välja ett nummer mellan 1 - 36  " << endl;
-				int nummer; //add check for range 
-				cin >> nummer;
-				cout << "Du ha valt; " << nummer << endl;
-				cout << "Lycka till! \n" << endl;
->>>>>>> 8e77c5174190c2065160e8eefffea7714fe8c5f2
+				cin >> nummer; //Input för önskat nummer att satsa på
+				cout << "Du ha valt; " << nummer << endl; //Meddelande om vilket nummer som har valts
+				cout << "Lycka till! \n" << endl; //Meddelande
 				
 				if (random_number == nummer) //Om det slumpmässiga talet som genererats är samma som det valda nummret (vinst)
 				{
@@ -168,8 +164,15 @@ int main() //Main funktionen
 		//Förfrågan om spelaren vill spela igen efter avklarad spelomgång
 		cout << "Vill du spela igen? (J/N) " << endl;
 		totalvinst = saldo - startsaldo;
-		cout << "Totalvinst: " << totalvinst << "kr" << endl; //Meddelande om totalvinst (Kan visa negativt tal vid förluster)
+		if (totalvinst>1000)
+		{
+		cout << "Totalvinst: " << totalvinst << "kr" << endl;
+		cin >> svar;
+		}
+		else if (totalvinst < 1000) 
+		{
 		cin >> svar; //Nytt input om spelaren vill spela, om svar ändras till N istället för J så avbryts while loopen
+		} 
 	
 	}
 	
