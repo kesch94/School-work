@@ -13,14 +13,18 @@ cout << "Svara ja eller nej (j/n) ";
 cin >> svar;
 
 
-if(svar == 'j' or 'J')
+if(svar=='j'||svar=='J')
 	{
 	cout << "du svarade ja";
 	}
  
- if(svar == 'n' or 'N')
+ if(svar=='n'||svar=='N')
 	{
 	cout << "du svarade nej";
+	}
+else 
+	{
+	cout << "Felaktigt svar";
 	}
 	
 	return 0;
