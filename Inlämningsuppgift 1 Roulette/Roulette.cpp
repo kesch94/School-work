@@ -85,8 +85,8 @@ int main() //Main funktionen
 					vinst = (insats*10); //Vinsten rï¿½knas ut med insats multiplicerat med 10
 					saldo = saldo + vinst; //Saldo uppdateras med nuvarande saldo + vinsten.
 					cout << "Bollen landade pa nummer: " << random_number << endl; //Meddelande om vilket nummer som genererades
-					cout << "Grattis du vann! " << endl; //Vinst meddelande
-					cout << "Vinst: " << (vinst - insats)<< "kr" << endl; //Meddelande om hur mycket vinsten ï¿½r pï¿½
+					cout << "Grattis du vann! \a " << endl; //Vinstmeddelande med alert för windowsljud vid vinst
+					cout << "Vinst: " << (vinst - insats)<< "kr" << endl; //Meddelande om hur mycket vinsten
 					cout << "Ditt nuvarande saldo ar: " << saldo << "kr" << endl; //Meddelande om uppdaterade saldot
 				}
 
@@ -115,7 +115,7 @@ int main() //Main funktionen
 							cout << "Bollen landade pa nummer: " << random_number << endl; //Meddelande om vilket nummer som har genererats
 							vinst = (insats*2); //Utrï¿½kning utav vinst
 							saldo = saldo + vinst; //Uppdatering utav saldo
-							cout << "Grattis du vann! " << endl; //Vinstmeddelande
+							cout << "Grattis du vann! \a " << endl; //Vinstmeddelande med alert
 							cout << "Vinst: " << (vinst - insats) << "kr" << endl; //Meddelande om reella vinsten
 							cout << "Ditt nuvarande saldo ar:  " << saldo << "kr" << endl; //Meddelande om nuvarande saldo
 						}
@@ -136,8 +136,8 @@ int main() //Main funktionen
 							cout << "Bollen landade pa nummer: " << random_number << endl; //Meddelande om nummret som genererats
 							vinst = (insats*2); //Uträkning för vinsten
 							saldo = saldo + vinst; //Uppdatering utav saldo efter vinst
-							cout << "Grattis du vann! " << endl; //Vinst meddelande
-							cout << "Vinst: " << (vinst - insats) << "kr" << endl; //Meddelande om vinsten som vunnits
+							cout << "Grattis du vann!\a " << endl; //Vinst meddelande
+							cout << "Vinst: " << (vinst - insats) << "kr" << endl; //Meddelande om vinsten som vunnits 
 							cout << "Ditt nuvarande saldo ar:  " << saldo << "kr" << endl; //Meddelande om nuvarande saldo efter vinst
 						}
 						else //Vad som händer om talet inte är jämnt alltså false sker detta
