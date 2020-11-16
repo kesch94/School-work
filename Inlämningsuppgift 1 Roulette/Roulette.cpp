@@ -1,9 +1,8 @@
-//Bibliotek för alla kommandon och funktioner ska fungera korrekt.
+//Inkluderar bibliotek för alla kommandon och funktioner ska fungera korrekt samt att vi använder standard namespace för enkelhetensskull.
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
 
-//För att använda standardformat på kommandon utan tillägg std::
 using namespace std;
 
 //Funktion som genererar ett slumpmässigttal mellan 1 och 36, Lärarens rekommendation.
@@ -29,7 +28,7 @@ bool black(int number)
 
 int main() //Main funktionen
 {
-	//Satta datatyper och värden.
+	//Skapar datatyper och värden.
 	int startsaldo = 1000; //Sï¿½tter startsaldo till 1000 med integer (heltal)
 	int saldo; //Definierar saldo med datatyp integer
 	long int insats; //long int för att ett större tal vid insats INTE ska krascha programmet. (till exempel insats 999999)
@@ -41,12 +40,12 @@ int main() //Main funktionen
 
 
 	//Vï¿½lkomstmeddelande och saldo information.
-	cout << "Hej och valkommen till att spela Roulette  " << endl; //Välkomstmeddelande
-	cout << "Ditt startsaldo ar:  " << startsaldo << "kr" << endl; //Meddelande om startsaldo
+	cout << "Hej och valkommen till att spela Roulette  " << endl;
+	cout << "Ditt startsaldo ar:  " << startsaldo << "kr" << endl; 
 
-	//Fï¿½rfrï¿½gan om spelaren vill spela
-	cout << "Vill du spela? (J/N) " << endl; //String output
-	cin >> svar; //Tar emot input och lagrar bokstaven i svar.
+	//Förfrågan om spelaren vill spela och tar emot input
+	cout << "Vill du spela? (J/N) " << endl; 
+	cin >> svar;
 
 
 
@@ -74,19 +73,19 @@ int main() //Main funktionen
 
 			if (val == 'N' || val == 'n') //Om valet ar N (Nummer)
 			{
-				cout << "Du far nu valja ett nummer mellan 1 - 36  " << endl; //Meddelande om att spelaren ska vï¿½lja nummer
-				int nummer; //Definierar nummer med datatyp integet
-				cin >> nummer; //Input ï¿½nskat nummer spelaren vill spela pï¿½
-				cout << "Du har valt; " << nummer << endl; //Output dï¿½r spelaren ser vilket nummer hen har valt
+				cout << "Du far nu valja ett nummer mellan 1 - 36  " << endl; //Meddelande om att spelaren ska välja nummer
+				int nummer; 
+				cin >> nummer; //Input änskat nummer spelaren vill satsa på
+				cout << "Du har valt; " << nummer << endl; //Output där spelaren ser vilket nummer hen har valt
 				cout << "Lycka till! \n" << endl; //Meddelande Lycka till
 
-				if (random_number == nummer) //Om det slumpmï¿½ssiga talet som genererats ï¿½r samma som det valda nummret (vinst)
+				if (random_number == nummer) //Om det slumpmässiga talet som genererats är samma som det valda nummret (vinst)
 				{
-					vinst = (insats*10); //Vinsten rï¿½knas ut med insats multiplicerat med 10
+					vinst = (insats*10); //Vinsten räknas ut med insats multiplicerat med 10
 					saldo = saldo + vinst; //Saldo uppdateras med nuvarande saldo + vinsten.
 					cout << "Bollen landade pa nummer: " << random_number << endl; //Meddelande om vilket nummer som genererades
 					cout << "Grattis du vann! \a " << endl; //Vinstmeddelande med alert för windowsljud vid vinst
-					cout << "Vinst: " << (vinst - insats)<< "kr" << endl; //Meddelande om hur mycket vinsten
+					cout << "Vinst: " << (vinst - insats)<< "kr" << endl; //Meddelande om hur mycket vinst
 					cout << "Ditt nuvarande saldo ar: " << saldo << "kr" << endl; //Meddelande om uppdaterade saldot
 				}
 
@@ -94,7 +93,7 @@ int main() //Main funktionen
 				{
 					cout << "Bollen landade pa nummer: " << random_number << endl; //Visar genererade nummret
 					cout << "Otur! Du forlorade! " << endl; //Meddelande om att färlust har skett
-					cout << "Forlust: " << insats << "kr" << endl; //Visar insatsen som förrlorats
+					cout << "Forlust: " << insats << "kr" << endl; //Visar insatsen som förlorats
 					cout << "Ditt nuvarande saldo ar:  " << saldo << "kr" << endl; //Visar nuvarande saldo
 				}
 
@@ -102,24 +101,24 @@ int main() //Main funktionen
 
 			else if (val == 'F'|| val == 'f') //Om valet är F att spela på färg sker detta.
 			{
-				cout << "Du far nu valja mellan fargen R'o'd och Svart (R/S)" << endl; //Meddelande om att välja mellan färgen röd och svart
+				cout << "Du far nu valja mellan fargen R'o'd och Svart (skriv in R eller S)" << endl; //Meddelande om att välja mellan färgen röd och svart
 				char farg; //Definierar farg i datatyp char
-				cin >> farg; //Input fï¿½r farg
+				cin >> farg; //Input för farg
 
-				if(farg == 'R' || farg == 'r') //Om fï¿½rgen R (rï¿½d) vï¿½ljs sker detta
+				if(farg == 'R' || farg == 'r') //Om färgen R (röd) väljs sker detta
 				{
-					cout  << "Du valde fargen Rod" << endl; //Meddelande om att fï¿½rgen rï¿½d har valts
+					cout  << "Du valde fargen Rod" << endl; //Meddelande om att färgen röd har valts
 					cout << "Korrekt farg ger tva ganger pengarna" << endl; //Meddelande om potentiella vinst multiplikationen
 						if (black(random_number) == false) //Om nummret som genererats i random_number är ojämnt räknas det som rätt och vinst sker.
 						{
 							cout << "Bollen landade pa nummer: " << random_number << endl; //Meddelande om vilket nummer som har genererats
-							vinst = (insats*2); //Utrï¿½kning utav vinst
+							vinst = (insats*2); //Uträkning utav vinst
 							saldo = saldo + vinst; //Uppdatering utav saldo
 							cout << "Grattis du vann! \a " << endl; //Vinstmeddelande med alert
 							cout << "Vinst: " << (vinst - insats) << "kr" << endl; //Meddelande om reella vinsten
 							cout << "Ditt nuvarande saldo ar:  " << saldo << "kr" << endl; //Meddelande om nuvarande saldo
 						}
-						else //Om det inte ärr jämnt nummer händer detta (förlust)
+						else //Om det inte är jämnt nummer händer detta (förlust)
 						{
 							cout << "Bollen landade pa nummer: " << random_number << endl; //Meddelande om genererat nummer
 							cout << "Otur! Du forlorade! " << endl; //Förlust meddelande
@@ -152,22 +151,22 @@ int main() //Main funktionen
 			}
 
 		}
-		else //Vad som sker om insatsvärdet är felaktigt (OM DET INTE ï¿½R 100,300 eller 500)
+		else //Vad som sker om insatsvärdet är felaktigt (OM DET INTE ÄR 100,300 eller 500)
 		{
 		 cout << "Felaktigt varde" << endl;
 		}
 		
 		totalvinst = saldo - startsaldo; //Uträkning för differens sedan start
 		
-		if(saldo>1001) //Om saldot är över startsaldot händer detta
+		if(saldo>=1000) //Om saldot är över startsaldot händer detta
 		{
 		cout << "Totalvinst: " << totalvinst << "kr" << endl; //Meddelande om totalvinst sedan start
 		}
 		if(saldo<1000) //Om saldot är lägre än startsaldo händer detta
 		{
-		cout << "Du ligger back: " << totalvinst << "kr" << endl; //skriver ut hur mycket minus spelare ligger
+		cout << "Du ligger " << totalvinst << "kr" << endl; //skriver ut hur mycket minus spelare ligger
 		}
-		//Förfrågan om spelaren vill spela igen efter avklarad spelomgï¿½ng
+		//Förfrågan om spelaren vill spela igen efter avklarad spelomgång
 		cout << "Vill du spela igen? (J/N) " << endl;
 		cin >> svar; //Nytt input om spelaren vill spela, om svar ändras till N istället för J så avbryts while-loopen
 	}
@@ -185,6 +184,6 @@ int main() //Main funktionen
 
 
 
-return 0; //Returnerar vï¿½rdet 0
+return 0;
 
 }
