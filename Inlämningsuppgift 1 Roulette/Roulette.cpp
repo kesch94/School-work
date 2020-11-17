@@ -17,7 +17,7 @@ bool black(int number)
 {
 	if (number % 2 == 0) //If statement med uträkning för att få fram om talet är jämnt eller ojämnt. Med hjälp utav modulus.
 	{
-		return true; //Om number är jämnt sätts vädet till sant
+		return true; //Om number är jämnt sätts värdet till sant
 	}
 
 	else //Else statement, vad som ska göras om if-statementets krav inte "avfyras"
