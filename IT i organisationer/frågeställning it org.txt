@@ -1,4 +1,4 @@
-Vart har Big data sina användningsområden och fördelar inom IS utveckling?
+Vart har Big data sina användningsområden och fördelar inom stora organisationer?
 
 Dra egna paraleller och slutsatser samt vinkla hur big data artiklarna kan relatera till IS utvecklingen.
 Samt hur ett IS för Big data bör struktureras. 
