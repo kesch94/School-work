@@ -89,7 +89,7 @@ int main() //Main funktionen
 					cout << "Ditt nuvarande saldo ar: " << saldo << "kr" << endl; //Meddelande om uppdaterade saldot
 				}
 
-				else //Om det ej ï¿½r vinst sker detta
+				else //Om det ej är vinst sker detta
 				{
 					cout << "Bollen landade pa nummer: " << random_number << endl; //Visar genererade nummret
 					cout << "Otur! Du forlorade! " << endl; //Meddelande om att färlust har skett
