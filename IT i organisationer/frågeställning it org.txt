@@ -1,4 +1,4 @@
-Vart har Big data sina användningsområden och fördelar inom stora organisationer?
+"Hur kan Big Data användas i stora företag?"
 
 Dra egna paraleller och slutsatser samt vinkla hur big data artiklarna kan relatera till IS utvecklingen.
 Samt hur ett IS för Big data bör struktureras. 
