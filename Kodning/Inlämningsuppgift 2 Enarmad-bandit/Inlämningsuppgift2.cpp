@@ -1,12 +1,14 @@
-#include <iostream>
+#include <iostream> //Nödvändiga biblioteken för att alla funktioner ska fungera korrekt i dev-c++
 #include <vector>
 #include <string>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
-char bandit[3][3];
+char bandit[3][3]; //Definierar arrayen
 
-void Spin() 
+void Spin() //Funktion för snurrandet (skapar 9 element)
 {
     for (int x = 0; x < 3; x++)
     {
@@ -23,36 +25,36 @@ void Spin()
             }
             else if (intRandomSymbol == 2)
             {
-                bandit[x][y] = 'X' ;
+                bandit[x][y] = 'X';
             }
 
-            
+
         }
     }
 }
 
-void outputStatistics(int bal, int games, int wins, int losses, int winnings) 
+void outputStatistics(int balance, int games, int wins, int losses, int winnings) //Output för spelstatistiken
 {
     cout << "\n\nSTATISTICS\n\n";
-    cout << "CURRENT BALANCE:" << bal <<"\n";
-    cout << "GAMES PLAYED:" << games <<"\n";
-    cout << "WINS:" << wins <<"\n";
-    cout << "LOSSES:"<< losses <<"\n";
-    cout << "WINNINGS"<< winnings <<"\n";
+    cout << "CURRENT BALANCE: " << balance << "\n";
+    cout << "GAMES PLAYED: " << games << "\n";
+    cout << "WINS: " << wins << "\n";
+    cout << "LOSSES: " << losses << "\n";
+    cout << "WINNINGS: " << winnings << "\n";
 }
 
-void output_board()
+void output_board() //Output för att skriva ut karaktärerna i arrayen Itterate through items of the array sequintely 
 {
-    
+
     for (int x = 0; x < 3; x++)
     {
-        std::cout << "\n";
-       for (int y = 0; y < 3; y++)
-       {
-           std::cout << bandit[x][y];
-       } 
+        cout << "\n";
+        for (int y = 0; y < 3; y++)
+        {
+            cout << bandit[x][y];
+        }
     }
-    std::cout << "\n";
+    cout << "\n";
 
 }
 
@@ -61,17 +63,17 @@ int checkWinCondition()
     int lines = 0;
 
 
-    for (int x = 0; x < 2; x++)
+    for (int x = 0; x < 3; x++)
     {
-        if (bandit[0+x][0] == bandit [0+x][1] && bandit[0+x][0] == bandit[0+x][2])
+        if (bandit[0 + x][0] == bandit[0 + x][1] && bandit[0 + x][0] == bandit[0 + x][2])
         {
             lines++;
         }
     }
 
-    for (int y = 0; y < 2; y++)
+    for (int y = 0; y < 3; y++)
     {
-        if (bandit[0][0+y] == bandit [1][0+y] && bandit[0][0+y] == bandit[2][0+y])
+        if (bandit[0][0 + y] == bandit[1][0 + y] && bandit[0][0 + y] == bandit[2][0 + y])
         {
             lines++;
         }
@@ -79,19 +81,19 @@ int checkWinCondition()
 
     output_board();
 
-    if(lines == 5)
+    if (lines == 5)
     {
         return 7;
     }
 
-    else if(lines == 6)
+    else if (lines == 6)
     {
         return 10;
     }
 
-    else 
+    else
     {
-        return lines+1;
+        return lines;
     }
 }
 
@@ -103,11 +105,11 @@ int user_bet(int balance)
     {
         if (user_bet > balance)
         {
-            cout << "You are to broke to bet that much, please try again " << "\n";
+            cout << "You don't have enough money', please try again " << "\n";
             return user_bet;
         }
 
-        else if (user_bet <=-1)
+        else if (user_bet <= -1)
         {
             cout << "Please enter a valid amount to bet" << "\n";
             user_bet = -1;
@@ -116,8 +118,8 @@ int user_bet(int balance)
 
         else if (user_bet >= 0 && user_bet <= balance)
         {
-            cout << "You bet:" << user_bet << "\n";
-            return user_bet; 
+            cout << "You bet: " << user_bet << "\n";
+            return user_bet;
         }
 
 
@@ -134,16 +136,16 @@ int user_bet(int balance)
 
 int user_guess(int user_bet)
 {
-    
+
     int winnings;
 
-    letTheOneArmBanditSpin();
+    Spin();
 
     winnings = checkWinCondition() * user_bet;
     return winnings;
 }
 
-int setSaldo(){
+int setSaldo() {
     int returnSaldo;
     cout << "Please Enter Your Starting Saldo" << "\n";
     try
@@ -151,7 +153,7 @@ int setSaldo(){
         cin >> returnSaldo;
         return returnSaldo;
     }
-    catch(...) 
+    catch (...)
     {
         return 0;
     }
@@ -159,25 +161,25 @@ int setSaldo(){
 
 bool continueGame()
 {
-    string continue_game;
+    char continue_game;
     cout << "Would you like to place a bet? Y/N" << "\n";
     cin >> continue_game;
-    if (continue_game == "Y")
+    if (continue_game == 'Y' || continue_game == 'y')
     {
         return true;
     }
 
-    else if (continue_game == "N")
+    else if (continue_game == 'N' || continue_game == 'n')
     {
         return false;
     }
 
     else
     {
-        cout << "Please be serious" << "\n";
+        cout << "Incorrect value" << "\n";
         return false;
     }
-    
+
 }
 
 
@@ -185,7 +187,7 @@ bool continueGame()
 
 void return_saldo(int saldo)
 {
-    std::cout << "Your current balance is:" << saldo << "\n";
+    cout << "Your current balance is:" << saldo << "\n";
 }
 
 int main()
@@ -199,26 +201,26 @@ int main()
     int total_winnings = 0;
     int returned_winnings;
     ////////////////////////////////////////////////////////////
-    
-    
-    cout << "Hello and welcome to the internet roulette wheel" << "\n";
+
+
+    cout << "Hello and welcome to the One Armed Bandit" << "\n";
 
     saldo = setSaldo();
-    
 
-    
+
+    //spel loopen, fungerar endast med saldo > 0
     while (saldo > 0)
     {
-     if(continueGame()) 
+        if (continueGame())
         {
-            bet = 0; 
+            bet = 0;
             return_saldo(saldo);
-            while(bet == 0)
+            while (bet == 0)
             {
                 bet = user_bet(saldo);
-                if(bet == 0)
+                if (bet == 0)
                 {
-                    break; 
+                    break;
                 }
 
                 else if (bet < 0)
@@ -226,32 +228,34 @@ int main()
                     break;
                 }
 
-                else 
+                else
                 {
-                     returned_winnings = user_guess(bet);
-                     if(returned_winnings > 0)
-                     {
+                    returned_winnings = user_guess(bet);
+                    if (returned_winnings > 0)
+                    {
                         total_winnings = total_winnings + returned_winnings;
                         gamesPlayed++;
                         wins++;
-                        saldo = (saldo - bet) + returned_winnings;
-                        return_saldo(saldo);
-                     }
-
-                     else if (returned_winnings < 0)
-                     {
-                        gamesPlayed++;
-                        losses++;
+                        cout << "\n" << "You won!: " << returned_winnings << endl;
                         saldo = saldo + returned_winnings;
                         return_saldo(saldo);
-                     }
-                    
+                    }
+
+                    else if (returned_winnings <= 0)
+                    {
+                        gamesPlayed++;
+                        losses++;
+                        cout << "You lost!" << endl;
+                        saldo = saldo - bet;
+                        return_saldo(saldo);
+                    }
+
                 }
-                
+
             }
 
             outputStatistics(saldo, gamesPlayed, wins, losses, total_winnings);
-            
+
         }
 
         else
@@ -260,10 +264,8 @@ int main()
             break;
         }
     }
-    
-return 0;
+
 
 }
-
 
 
