@@ -1,0 +1,3 @@
+﻿  OneArmedBandit.cpp
+C:\Users\kesch\OneDrive\Dokument\GitHub\OneArmedBandit\OneArmedBandit.cpp(135): warning C4715: 'user_bet': not all control paths return a value
+  OneArmedBandit.vcxproj -> C:\Users\kesch\OneDrive\Dokument\GitHub\OneArmedBandit\Debug\OneArmedBandit.exe
