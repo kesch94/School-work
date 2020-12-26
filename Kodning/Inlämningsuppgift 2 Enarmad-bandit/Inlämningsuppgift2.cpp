@@ -78,17 +78,28 @@ int checkWinCondition()
             lines++;
         }
     }
-
+	
+	if (bandit[0][0] == bandit[1][1] && bandit[0][0] == bandit[2][2])
+        {
+            lines++;
+        }
+    
+	if (bandit[0][2] == bandit[1][1] && bandit[0][2] == bandit[2][0])
+        {
+            lines++;
+        }   
+       
+        
     output_board();
 
-    if (lines == 5)
+    if (lines == 6)
     {
         return 7;
     }
 
-    else if (lines == 6)
+    else if (lines == 8)
     {
-        return 10;
+        return 9;
     }
 
     else
@@ -146,11 +157,23 @@ int user_guess(int user_bet)
 }
 
 int setSaldo() {
-    int returnSaldo;
-    cout << "Please Enter Your Starting Saldo" << "\n";
+    int returnSaldo=0;
+    cout << "Please Enter Your Starting Saldo (100,300 or 500)" << "\n";
     try
     {
-        cin >> returnSaldo;
+    	while (returnSaldo != 100 || returnSaldo != 300 || returnSaldo != 500)
+		{
+			cin >> returnSaldo; 
+			if (returnSaldo == 100 || returnSaldo == 300 || returnSaldo == 500)
+			{
+			break;
+			}
+        	if (returnSaldo =! 100 || returnSaldo != 300 || returnSaldo != 500)
+			{
+        		cout << "Please insert a valid amount!" << endl;
+			}
+		}
+        
         return returnSaldo;
     }
     catch (...)

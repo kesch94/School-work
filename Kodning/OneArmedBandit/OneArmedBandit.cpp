@@ -147,7 +147,7 @@ int user_guess(int user_bet)
 
 int setSaldo() {
     int returnSaldo;
-    cout << "Please Enter Your Starting Saldo" << "\n";
+    cout << "Please Enter Your Starting Saldo, you can choose 100, 300 och 500" << "\n";
     try
     {
         cin >> returnSaldo;
@@ -211,7 +211,7 @@ int main()
     //spel loopen, fungerar endast med saldo > 0
     while (saldo > 0)
     {
-        if (continueGame())
+        if (continueGame()) //Funktionen för att fortsätta spelet (spela igen)
         {
             bet = 0;
             return_saldo(saldo);
