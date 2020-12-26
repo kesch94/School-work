@@ -8,7 +8,7 @@ using namespace std;
 
 char bandit[3][3]; //Definierar arrayen
 
-void Spin() //Funktion för snurrandet (skapar 9 element)
+void Spin() //Funktion för snurrandet och genererar slumpmässiga tal som sedan konverteras till symboler
 {
     for (int x = 0; x < 3; x++)
     {
@@ -33,7 +33,7 @@ void Spin() //Funktion för snurrandet (skapar 9 element)
     }
 }
 
-void outputStatistics(int balance, int games, int wins, int losses, int winnings) //Output för spelstatistiken
+void outputStatistics(int balance, int games, int wins, int losses, int winnings) //funktion för output på spelstatistiken
 {
     cout << "\n\nSTATISTICS\n\n";
     cout << "CURRENT BALANCE: " << balance << "\n";
@@ -43,7 +43,7 @@ void outputStatistics(int balance, int games, int wins, int losses, int winnings
     cout << "WINNINGS: " << winnings << "\n";
 }
 
-void output_board() //Output för att skriva ut karaktärerna i arrayen Itterate through items of the array sequintely 
+void output_board() //Funktion som skriver ut symbolerna i arrayen
 {
 
     for (int x = 0; x < 3; x++)
@@ -58,7 +58,8 @@ void output_board() //Output för att skriva ut karaktärerna i arrayen Itterate t
 
 }
 
-int checkWinCondition()
+int checkWinCondition() //Funktion som kollar antalet linjer (element som är i linje) som är av lika symboler för att addera totalt antal linjer med lika symboler 
+						//som sedan används för vinst-multiplikation
 {
     int lines = 0;
 
@@ -90,7 +91,7 @@ int checkWinCondition()
         }   
        
         
-    output_board();
+    output_board(); //Output för vinst-multiplikation med hjälp av antal rätta linjer
 
     if (lines == 6)
     {
@@ -108,10 +109,10 @@ int checkWinCondition()
     }
 }
 
-int user_bet(int balance)
+int user_bet(int balance) //Funktion för insats
 {
-    int user_bet = -1;
-    cout << "How much would you like to bet? enter 0 if you would like to cancel" << "\n";
+    int user_bet = -1; //satt till user_bet = -1 för att kunna använda 0 för att inte placera ett bet och sedan kunna avsluta.
+    cout << "How much would you like to bet? enter 0 if you would like to go back" << "\n";
     if (cin >> user_bet)
     {
         if (user_bet > balance)
@@ -133,7 +134,6 @@ int user_bet(int balance)
             return user_bet;
         }
 
-
     }
 
     else
@@ -145,7 +145,7 @@ int user_bet(int balance)
 
 }
 
-int user_guess(int user_bet)
+int user_guess(int user_bet) //Funktion för att räkna ut vinst med hjälp av funktionen Spin och funktionen checkWinCondition
 {
 
     int winnings;
@@ -156,7 +156,8 @@ int user_guess(int user_bet)
     return winnings;
 }
 
-int setSaldo() {
+int setSaldo() //Funktion för att ta emot insättning med krav
+{
     int returnSaldo=0;
     cout << "Please Enter Your Starting Saldo (100,300 or 500)" << "\n";
     try
@@ -182,7 +183,7 @@ int setSaldo() {
     }
 }
 
-bool continueGame()
+bool continueGame() //Funktion för att fråga spelaren om hen vill fortsätta spela 
 {
     char continue_game;
     cout << "Would you like to place a bet? Y/N" << "\n";
@@ -208,7 +209,7 @@ bool continueGame()
 
 
 
-void return_saldo(int saldo)
+void return_saldo(int saldo) //Funktion för att skriva ut nuvarande saldo
 {
     cout << "Your current balance is:" << saldo << "\n";
 }
@@ -253,8 +254,8 @@ int main()
 
                 else
                 {
-                    returned_winnings = user_guess(bet);
-                    if (returned_winnings > 0)
+                    returned_winnings = user_guess(bet); //kommentar 
+                    if (returned_winnings > 0) //funktion för vinstmeddelande som adderar vinst och uppdaterar statistik
                     {
                         total_winnings = total_winnings + returned_winnings;
                         gamesPlayed++;
@@ -264,7 +265,7 @@ int main()
                         return_saldo(saldo);
                     }
 
-                    else if (returned_winnings <= 0)
+                    else if (returned_winnings <= 0) //funktion för förlustmeddelande som adderar statistik och subtraherar saldot
                     {
                         gamesPlayed++;
                         losses++;
@@ -277,11 +278,11 @@ int main()
 
             }
 
-            outputStatistics(saldo, gamesPlayed, wins, losses, total_winnings);
+            outputStatistics(saldo, gamesPlayed, wins, losses, total_winnings); //Skriver ut all statistik i variablerna
 
         }
 
-        else
+        else //Avslutningsmeddelande
         {
             cout << "Have a nice day" << "\n";
             break;
