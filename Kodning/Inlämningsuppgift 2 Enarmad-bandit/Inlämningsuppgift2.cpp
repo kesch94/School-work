@@ -104,7 +104,7 @@ int checkWinCondition() //Funktion som kollar antalet linjer (element som är i l
     }
 }
 
-int user_bet(int balance) //Funktion för insats
+int user_bet(int balance) //Funktion för insats, hämtar information om balance för denna funktion
 {
     int user_bet = -1; //satt till user bet = -1 för att kunna använda 0 för att inte placera ett bet och sedan kunna avsluta.
     cout << "How much would you like to bet? enter 0 if you would like to go back" << "\n";
@@ -217,7 +217,7 @@ int main()
 	cout << "Hello and welcome to the One Armed Bandit" << "\n";
 	saldo = setSaldo();
 
-    //spel loopen, fungerar endast med saldo > 0
+    //spel loopen, fungerar endast med saldo > 0 , samt funktionen continueGame som är spelförfrågan.
     while (saldo > 0)
     {
         if (continueGame())
@@ -239,7 +239,7 @@ int main()
 
                 else
                 {
-                returned_winnings = user_guess(bet);
+                returned_winnings = user_guess(bet); //Funktion för spel-vinsten, räknar med hjälp utav betstorleken som blivit kallad i funktionen
                     
 					if (returned_winnings > 0) //funktion för vinstmeddelande som adderar vinst och uppdaterar statistik
                     {
@@ -259,12 +259,9 @@ int main()
                         saldo = saldo - bet;
                         return_saldo(saldo);
                     }
-
                 }
-
             }
-
-            outputStatistics(saldo, gamesPlayed, wins, losses, total_winnings); //Skriver ut all statistik i variablerna
+            outputStatistics(saldo, gamesPlayed, wins, losses, total_winnings); //funktion som kallas och skriver ut variablerna för statistik
 		}
 
         else //Avslutningsmeddelande
