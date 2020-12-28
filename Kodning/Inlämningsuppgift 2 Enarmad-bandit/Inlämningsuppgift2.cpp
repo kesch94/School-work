@@ -114,6 +114,7 @@ int user_bet(int balance) //Funktion för insats, kallar på varibeln balance (sal
         if (user_bet > balance)
         {
             cout << "You don't have enough money', please try again " << "\n";
+            user_bet =-1;
             return user_bet;
         }
 
