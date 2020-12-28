@@ -104,7 +104,7 @@ int checkWinCondition() //Funktion som kollar antalet linjer (element som är i l
     }
 }
 
-int user_bet(int balance) //Funktion för insats, hämtar information om balance för denna funktion
+int user_bet(int balance) //Funktion för insats, kallar på varibeln balance (saldo).
 {
     int user_bet = -1; //satt till user bet = -1 för att kunna använda 0 för att inte placera ett bet och sedan kunna avsluta.
     cout << "How much would you like to bet? enter 0 if you would like to go back" << "\n";
@@ -146,11 +146,12 @@ int user_guess(int user_bet) //Funktion för att räkna ut vinst med hjälp av funk
     return winnings;
 }
 
-int setSaldo() //Funktion för att ta emot insättning med krav
+int setSaldo() //Funktion för att ta emot insättning med krav (sätta startsaldo)
 {
     int returnSaldo=0;
     cout << "Please Enter Your Starting Saldo (100,300 or 500)" << "\n";
-    try
+    
+    try  //Använder mig utav try and catch statements för att kolla att det är numeriskt värde, ifall någon skulle skriva in en bokstav istället. Dock förhindrade deet inte kraschandet vid inmatning utav en bokstav.
     {
     	while (returnSaldo != 100 || returnSaldo != 300 || returnSaldo != 500)
 		{
@@ -159,7 +160,7 @@ int setSaldo() //Funktion för att ta emot insättning med krav
 			{
 			break;
 			}
-        	if (returnSaldo =! 100 || returnSaldo != 300 || returnSaldo != 500)
+        	if (returnSaldo != 100 || returnSaldo != 300 || returnSaldo != 500)
 			{
         		cout << "Please insert a valid amount!" << endl;
 			}
