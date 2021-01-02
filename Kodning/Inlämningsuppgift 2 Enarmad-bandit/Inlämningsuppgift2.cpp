@@ -88,14 +88,30 @@ int checkWinCondition() //Funktion som kollar antalet linjer (element som är i l
        
          output_board(); //funktion för att skriva ut arrayen (symbolerna)
 
-    if (lines == 6)
+    
+	if (lines == 2)
+	{
+		return 3;
+	}
+	
+	if (lines == 3)
+	{
+		return 4;
+	}
+	
+	if (lines == 4)
+	{
+		return 5;
+	}
+	
+	if (lines == 5)
     {
         return 7;
     }
-
+	
     else if (lines == 8)
     {
-        return 9;
+        return 10;
     }
 
     else
