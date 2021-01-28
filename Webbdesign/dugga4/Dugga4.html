@@ -2,52 +2,46 @@
 <html lang="en-us"> 
     <head>
         <title>Dugga4</title>
-        <meta charset="utf-8"/>
+        <meta charset="UTF-8"/>
     </head>    
     <body lang="en-us">
-        <fieldset> 
-            <legend>Personal information</legend>
-                <label> 
-                Name: <input type="text" name="Enter name here" ></input><div>
-                Street: <input type="text" name="Enter streetname" ></input><div>
-                City: <input type="text" name="Enter cityname" ></input><div>
-                Age: <input type="number" name="Enter age" ></input><div>
-                </label>
-        </fieldset>
-        <fieldset>
-            <legend>Order</legend>
+        <form action="mailto:c20antka@student.his.se?subject=Information" method="POST">
+            <fieldset> 
+                <legend>Personal information</legend>    
+                <div><label>Name: <input type="text" name="Enter name here"></label></div>
+                <div><label>Street: <input type="text" name="Enter streetname"></label></div>
+                <div><label>City: <input type="text" name="Enter cityname"></label></div>
+                <div><label>Age: <input type="number" name="Enter age"></label></div>
+            </fieldset>
             <fieldset>
-                <legend>Price</legend>
-                <label>
-                    Show prices: 
-                    With VAT <input type="radio" name="With VAT" value="With VAT">
-                    Without VAT <input type="radio" name="Without VAT" value="Without VAT"><div>
-                    Price range: <input type="range" name="Price range" value="0-10000"><div>
-                </label>
-                <h1>Products</h1><div>
-                <select name="Mountain bike" id="Mountain bike">
-                    <option> Mountain bike </option>
-                    <option value="bike1"> bike1 </option>
-                    <option value="bike2"> bike2 </option>
-                    <option value="bike3"> bike3 </option>
-                    <option value="bike4"> bike4 </option>
-                </select>
+                <legend>Order</legend>
+                <fieldset>
+                    <legend>Price</legend>
+                    <div><label>Show prices:</label>
+                    <label>With VAT <input type="radio" name="With VAT" value="Yes"></label>
+                    <label>Without VAT <input type="radio" name="Without VAT" value="Yes"></label></div>
+                    <div><label>Price range: <input type="range" name="Price range" value="50000"></label></div>
+                </fieldset>   
+                    <div><h1>Products</h1></div>
+                    <select name="Mountain_bike" id="Mountain_bike">
+                        <option value="Mountain_bike"> Mountain bike </option>
+                        <option value="bike1"> bike1 </option>
+                        <option value="bike2"> bike2 </option>
+                        <option value="bike3"> bike3 </option>
+                        <option value="bike4"> bike4 </option>
+                    </select>
             </fieldset>
             <fieldset>
                 <legend>Checkout</legend>
                 <fieldset>
-                    <label>
-                        Home delivery <input type="radio" name="Home delivery" value="Home delivery"><div>
-                        Collect at store <input type="radio" name="Collect at store" value="Collect at store"><div>
-                        Delivery to partner outlet <input type="radio" name="Delivery to partner outlet" value="Delivery to partner outlet"><div>
-                    </label>
+                    <div><label>Home delivery <input type="radio" value="Yes"></label></div>
+                    <div><label>Collect at store <input type="radio" name="Collect at store" value="Yes"></label></div>
+                    <div><label>Delivery to partner outlet <input type="radio" name="Delivery to partner outlet" value="Yes"></label></div>
                 </fieldset>
-                <label>
-                    Add mega insurance: <input type="checkbox" name="Add mega insurance" value="Add mega insurance"><div>
-                    Subscribe to newsletter: <input type="checkbox" name="Subscribe to newsletter" value="Subscribe to newsletter">    
-                </label>
+                <div><label>Add mega insurance: <input type="checkbox" name="Add mega insurance" value="Yes"></label></div>
+                <label>Subscribe to newsletter: <input type="checkbox" name="Subscribe to newsletter" value="Yes"></label>    
             </fieldset>
-            <a href="mailto:c20antka@student.his.se"> <input type=Submit value="Submit"> </a>
-        </fieldset>
+        <input type="submit" value="Submit"> 
+        </form> 
     </body>
 </html>
