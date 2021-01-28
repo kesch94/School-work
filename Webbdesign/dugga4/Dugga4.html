@@ -8,23 +8,25 @@
         <form action="mailto:c20antka@student.his.se?subject=Information" method="POST">
             <fieldset> 
                 <legend>Personal information</legend>    
-                <div><label>Name: <input type="text" name="Enter name here"></label></div>
-                <div><label>Street: <input type="text" name="Enter streetname"></label></div>
-                <div><label>City: <input type="text" name="Enter cityname"></label></div>
-                <div><label>Age: <input type="number" name="Enter age"></label></div>
+                <div><label>Name: <input type="text" name="Name" placeholder="Enter name here" required></label></div>
+                <div><label>Street: <input type="text" name="Street" placeholder="Enter streetname" required></label></div>
+                <div><label>City: <input type="text" name="City" placeholder="Enter cityname" required></label></div>
+                <div><label>Age: <input type="number" name="Age" placeholder="Enter age" required></label></div>
             </fieldset>
             <fieldset>
                 <legend>Order</legend>
                 <fieldset>
                     <legend>Price</legend>
-                    <div><label>Show prices:</label>
-                    <label>With VAT <input type="radio" name="With VAT" value="Yes"></label>
-                    <label>Without VAT <input type="radio" name="Without VAT" value="Yes"></label></div>
+                    <div>
+                        <label>Show prices:</label>
+                        <label>With VAT <input type="radio" name="VAT" value="Yes"></label>
+                        <label>Without VAT <input type="radio" name="VAT" value="No"></label>
+                    </div>
                     <div><label>Price range: <input type="range" name="Price range" value="50000"></label></div>
                 </fieldset>   
                     <div><h1>Products</h1></div>
-                    <select name="Mountain_bike" id="Mountain_bike">
-                        <option value="Mountain_bike"> Mountain bike </option>
+                    <select name="Mountain_bike" required>
+                        <option value="" selected>Mountain bike</option>
                         <option value="bike1"> bike1 </option>
                         <option value="bike2"> bike2 </option>
                         <option value="bike3"> bike3 </option>
@@ -34,12 +36,12 @@
             <fieldset>
                 <legend>Checkout</legend>
                 <fieldset>
-                    <div><label>Home delivery <input type="radio" value="Yes"></label></div>
-                    <div><label>Collect at store <input type="radio" name="Collect at store" value="Yes"></label></div>
-                    <div><label>Delivery to partner outlet <input type="radio" name="Delivery to partner outlet" value="Yes"></label></div>
+                    <div><label>Home delivery <input type="radio" name="order_type" value="Home"></label></div>
+                    <div><label>Collect at store <input type="radio" name="order_type" value="Collect"></label></div>
+                    <div><label>Delivery to partner outlet <input type="radio" name="order_type" value="Partner"></label></div>
                 </fieldset>
-                <div><label>Add mega insurance: <input type="checkbox" name="Add mega insurance" value="Yes"></label></div>
-                <label>Subscribe to newsletter: <input type="checkbox" name="Subscribe to newsletter" value="Yes"></label>    
+                <div><label>Add mega insurance: <input type="checkbox" name="Insurance" value="Yes"></label></div>
+                <label>Subscribe to newsletter: <input type="checkbox" name="Subscribe" value="Yes"></label>    
             </fieldset>
         <input type="submit" value="Submit"> 
         </form> 
