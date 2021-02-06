@@ -1,4 +1,4 @@
-#include <iostream> //Nödvändiga biblioteken för att alla funktioner ska fungera korrekt i dev-c++
+#include <iostream> /////Nï¿½dvï¿½ndiga biblioteken fï¿½r att alla funktioner ska fungera korrekt i dev-c++
 #include <vector>
 #include <string>
 #include <ctime>
@@ -8,7 +8,7 @@ using namespace std;
 
 char bandit[3][3]; //Definierar arrayen
 
-void Spin() //Funktion för snurrandet och genererar slumpmässiga tal som sedan konverteras till symboler
+void Spin() //Funktion fï¿½r snurrandet och genererar slumpmï¿½ssiga tal som sedan konverteras till symboler
 {
     for (int x = 0; x < 3; x++)
     {
@@ -31,7 +31,7 @@ void Spin() //Funktion för snurrandet och genererar slumpmässiga tal som sedan k
     }
 }
 
-void outputStatistics(int balance, int games, int wins, int losses, int winnings) //funktion för output på spelstatistiken
+void outputStatistics(int balance, int games, int wins, int losses, int winnings) //funktion fï¿½r output pï¿½ spelstatistiken
 {
     cout << "\n\nSTATISTICS\n\n";
     cout << "CURRENT BALANCE: " << balance << "\n";
@@ -55,8 +55,8 @@ void output_board() //Funktion som skriver ut symbolerna i arrayen
     cout << "\n" << "////////////////////" << endl;;
 }
 
-int checkWinCondition() //Funktion som kollar antalet linjer (element som är i linje) som är av lika symboler för att addera totalt antal linjer med lika symboler 
-						//som sedan används för vinst-multiplikation
+int checkWinCondition() //Funktion som kollar antalet linjer (element som ï¿½r i linje) som ï¿½r av lika symboler fï¿½r att addera totalt antal linjer med lika symboler 
+						//som sedan anvï¿½nds fï¿½r vinst-multiplikation
 {
     int lines = 0;
 
@@ -86,7 +86,7 @@ int checkWinCondition() //Funktion som kollar antalet linjer (element som är i l
             lines++;
         }   
        
-         output_board(); //funktion för att skriva ut arrayen (symbolerna)
+         output_board(); //funktion fï¿½r att skriva ut arrayen (symbolerna)
 
     
 	if (lines == 2)
@@ -120,9 +120,9 @@ int checkWinCondition() //Funktion som kollar antalet linjer (element som är i l
     }
 }
 
-int user_bet(int balance) //Funktion för insats, kallar på varibeln balance (saldo).
+int user_bet(int balance) //Funktion fï¿½r insats, kallar pï¿½ varibeln balance (saldo).
 {
-    int user_bet = -1; //satt till user bet = -1 för att kunna använda 0 för att inte placera ett bet och sedan kunna avsluta.
+    int user_bet = -1; //satt till user bet = -1 fï¿½r att kunna anvï¿½nda 0 fï¿½r att inte placera ett bet och sedan kunna avsluta.
     cout << "How much would you like to bet? enter 0 if you would like to go back" << "\n";
    
     if (cin >> user_bet)
@@ -155,7 +155,7 @@ int user_bet(int balance) //Funktion för insats, kallar på varibeln balance (sal
     }
 }
 
-int user_guess(int user_bet) //Funktion för att räkna ut vinst med hjälp av funktionen Spin och funktionen checkWinCondition
+int user_guess(int user_bet) //Funktion fï¿½r att rï¿½kna ut vinst med hjï¿½lp av funktionen Spin och funktionen checkWinCondition
 {
 	int winnings;
 	 Spin();
@@ -163,12 +163,12 @@ int user_guess(int user_bet) //Funktion för att räkna ut vinst med hjälp av funk
     return winnings;
 }
 
-int setSaldo() //Funktion för att ta emot insättning med krav (sätta startsaldo)
+int setSaldo() //Funktion fï¿½r att ta emot insï¿½ttning med krav (sï¿½tta startsaldo)
 {
     int returnSaldo=0;
     cout << "Please Enter Your Starting Saldo (100,300 or 500)" << "\n";
     
-    try  //Använder mig utav try and catch statements för att kolla att det är numeriskt värde, ifall någon skulle skriva in en bokstav istället. Dock förhindrade deet inte kraschandet vid inmatning utav en bokstav.
+    try  //Anvï¿½nder mig utav try and catch statements fï¿½r att kolla att det ï¿½r numeriskt vï¿½rde, ifall nï¿½gon skulle skriva in en bokstav istï¿½llet. Dock fï¿½rhindrade deet inte kraschandet vid inmatning utav en bokstav.
     {
     	while (returnSaldo != 100 || returnSaldo != 300 || returnSaldo != 500)
 		{
@@ -191,7 +191,7 @@ int setSaldo() //Funktion för att ta emot insättning med krav (sätta startsaldo)
     }
 }
 
-bool continueGame() //Funktion för att fråga spelaren om hen vill fortsätta spela 
+bool continueGame() //Funktion fï¿½r att frï¿½ga spelaren om hen vill fortsï¿½tta spela 
 {
     char continue_game;
     cout << "Would you like to place a bet? Y/N" << "\n";
@@ -215,7 +215,7 @@ bool continueGame() //Funktion för att fråga spelaren om hen vill fortsätta spel
 }
 
 
-void return_saldo(int saldo) //Funktion för att skriva ut nuvarande saldo
+void return_saldo(int saldo) //Funktion fï¿½r att skriva ut nuvarande saldo
 {
     cout << "Your current balance is:" << saldo << "\n";
 }
@@ -235,7 +235,7 @@ int main()
 	cout << "Hello and welcome to the One Armed Bandit" << "\n";
 	saldo = setSaldo();
 
-    //spel loopen, fungerar endast med saldo > 0 , samt funktionen continueGame som är spelförfrågan.
+    //spel loopen, fungerar endast med saldo > 0 , samt funktionen continueGame som ï¿½r spelfï¿½rfrï¿½gan.
     while (saldo > 0)
     {
         if (continueGame())
@@ -257,9 +257,9 @@ int main()
 
                 else
                 {
-                returned_winnings = user_guess(bet); //Funktion för spel-vinsten, räknar med hjälp utav betstorleken som blivit kallad i funktionen
+                returned_winnings = user_guess(bet); //Funktion fï¿½r spel-vinsten, rï¿½knar med hjï¿½lp utav betstorleken som blivit kallad i funktionen
                     
-					if (returned_winnings > 0) //funktion för vinstmeddelande som adderar vinst och uppdaterar statistik
+					if (returned_winnings > 0) //funktion fï¿½r vinstmeddelande som adderar vinst och uppdaterar statistik
                     {
                         total_winnings = total_winnings + returned_winnings;
                         gamesPlayed++;
@@ -269,7 +269,7 @@ int main()
                         return_saldo(saldo);
                     }
 
-                    else if (returned_winnings <= 0) //funktion för förlustmeddelande som adderar statistik och subtraherar saldot
+                    else if (returned_winnings <= 0) //funktion fï¿½r fï¿½rlustmeddelande som adderar statistik och subtraherar saldot
                     {
                         gamesPlayed++;
                         losses++;
@@ -279,7 +279,7 @@ int main()
                     }
                 }
             }
-            outputStatistics(saldo, gamesPlayed, wins, losses, total_winnings); //funktion som kallas och skriver ut variablerna för statistik
+            outputStatistics(saldo, gamesPlayed, wins, losses, total_winnings); //funktion som kallas och skriver ut variablerna fï¿½r statistik
 		}
 
         else //Avslutningsmeddelande
