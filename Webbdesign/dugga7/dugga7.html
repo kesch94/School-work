@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-us"> 
     <head>
-        <title>Dugga6</title>
+        <title>Dugga7</title>
         <meta charset="utf-8"/>
         <style>
-            
-        </style>   
-    </head>    
-    <body lang="en-us">
-        <p><em>Box1</em>is a sibling with box2: widht 200px, heigh 430px, background color red, margin 0,padding 20px</p>
-    </body>
+            #Box1  {
+                
+                background-color: #F00;
+                width: 200px;
+                height: 430px;
+                padding: 20px;
+                margin: 0px;
+            }
+            #Box2  {
+                background-color:aqua;
+                width: 250px;
+                height: 120px;
+                margin: 50px;
+                padding: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p id="Box1"><strong>Box1</strong>is a sibling with box2: widht 200px, height 430px, background color red, margin 0,padding 20px</p>
+            <p id="Box2"><strong>Box2</strong>is a sibling with box1: widht 250px, height 120px, background color aqua, margin 50px, padding 0px</p>
+        </div>    
 </html>
