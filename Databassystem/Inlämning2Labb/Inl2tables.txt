@@ -1,0 +1,8 @@
+
+Skidåkare(Namn, vikt)
+Tävling(Namn, date,)
+Deltagare(Namn, Tävling)
+
+ 
+
+
