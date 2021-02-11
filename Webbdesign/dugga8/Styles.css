@@ -1,0 +1,119 @@
+
+
+h1 {
+    background-color:purple;
+    font-family:'Roboto', sans-serif;
+    color:white;
+    text-align:center;
+    height:35px;
+    padding:50px;
+}
+
+a {
+    color:red;
+    font-family:'Roboto', sans-serif;
+    font-size: large;
+    font-weight:lighter;
+}
+h2 {
+    color:green;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul {
+    color:green;
+    font-family: 'Roboto', sans-serif;
+    list-style-type: square;
+    font-size:110%;
+}
+
+p {
+    color:green;
+    background-color:pink;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    width: 350px;
+}
+q {
+    font-size: 80%;
+}
+h3 {
+    color:green;
+    border-bottom:1px solid grey;
+}
+
+ol li {
+    color:green;
+    font-size: 130%;
+    background-color: pink;
+}
+
+li {
+    border-bottom:4px solid white;
+}
+
+li a {
+    font-size: 50%;
+}
+
+em {
+    font-family: 'Roboto', sans-serif;
+    color:green;
+}
+
+caption {
+    font-family: 'Robot', sans-serif;
+    font-size: 110%;
+}
+
+table thead {
+    font-family: 'Robot', sans-serif;
+    border-bottom:4px solid purple;
+}
+
+table tfoot {
+    border-top:4px solid purple;
+    font-style: italic;
+}
+
+td {
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-left: 10px;
+    max-width: 150px;
+}
+
+table tr {
+    padding-left: 100px;
+}
+
+table {
+    border-collapse: collapse;
+    color:green;
+    font-family:'Robot', sans-serif;
+    font-size: 110%;
+}
+
+fieldset {
+    background-color: pink;
+    font-family:'Robot', sans-serif;
+    font-size: 120%;
+    border-color: white;
+    max-width: 500px;
+    align-content: center; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+fieldset label {
+    color:green;
+    align-content: center; 
+    margin-left: auto;
+    margin-right: auto;  
+}
+
+legend {
+    color:green;
+    align-content: center;
+}
+
