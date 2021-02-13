@@ -12,8 +12,8 @@ h1 {
 a {
     color:red;
     font-family:'Roboto', sans-serif;
-    font-size: large;
-    font-weight:lighter;
+    font-size:120%;
+    font-weight: bold;
 }
 h2 {
     color:green;
@@ -97,23 +97,65 @@ table {
 fieldset {
     background-color: pink;
     font-family:'Robot', sans-serif;
-    font-size: 120%;
     border-color: white;
     max-width: 500px;
-    align-content: center; 
+    font-size: 110%;
+    text-align: center; 
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; 
+    margin-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 fieldset label {
     color:green;
-    align-content: center; 
-    margin-left: auto;
-    margin-right: auto;  
-}
-
-legend {
-    color:green;
     align-content: center;
 }
 
+fieldset input {
+    margin-top:20px;
+}
+
+
+fieldset legend {
+    color:green;
+    text-align: left;
+}
+
+
+legend {
+    color:green;
+}
+
+fieldset h1 {
+    font-family:'Robot', sans-serif;
+    color: green; 
+    background-color:pink;
+    font-size: 150%;
+    max-height:1px;
+    margin-top:0%;
+    margin-bottom:0%;
+}
+
+fieldset div {
+    font-size: 75%;
+    font-weight: bold;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+input[type=range] {
+    width: 50%;
+    height: 5px;
+    cursor: pointer;
+    background: white;
+    opacity: 50%;
+    border-color: white;
+    -webkit-appearance: none;
+}
+
+#blue {
+    color:blue;
+}
