@@ -1,8 +1,8 @@
 #top-border {
-    display: flex;
+    display:flex;
     background-color: grey;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content:baseline;
+    align-items:center;
 }
 h1 {
     margin-right: auto;
@@ -17,7 +17,7 @@ img {
     height: 400px;
 }
 nav {
-    padding-right: 400px;
+    padding-right:
 }
 .nav1 {
     padding: 5px 10px;
