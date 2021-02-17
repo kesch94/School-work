@@ -1,0 +1,103 @@
+#top-border {
+    display: flex;
+    background-color: grey;
+    justify-content: flex-end;
+    align-items: center;
+}
+h1 {
+    margin-right: auto;
+    padding-left: 10px;
+}
+body {
+    background-color: black;
+    margin: 0px;
+}
+img {
+    width: 400px;
+    height: 400px;
+}
+nav {
+    padding-right: 400px;
+}
+.nav1 {
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-right:10px;
+    color: white;
+    background-color: black;
+    border-radius: 50% 50% 50% 50%;
+}
+.nav2 {
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 10px;
+    color: white;
+    background-color: black;
+    border-radius: 50% 50% 50% 50%;
+}
+.nav3 {
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 10px;
+    color: white;
+    background-color: black;
+    border-radius: 50% 50% 50% 50%;
+}
+.nav4 {
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 10px;
+    color: white;
+    background-color: black;
+    border-radius: 50% 50% 50% 50%;
+}
+.plus {
+    bottom: 10px;
+    right: 10px;
+    padding: 12px 20px;
+    background-color: crimson;
+    border-radius: 50% 50% 50% 50%;
+    border: none;
+    margin: 20px;
+    position: absolute;
+    font-size: 30px;
+}
+#sidebar {
+    background-color: grey;
+    padding: 10px;
+    height: 100%;
+    width: 60px;
+    position: absolute;
+}
+#b {
+    display: flex;
+    margin-right: 0%;
+    width: 100%;
+}
+#text {
+    margin-left: 10px;
+    position: relative;
+}
+#longtext {
+    margin-top: 10px;
+    position: relative;
+}
+#main-text {
+    margin-left: 80px;
+    margin-right: auto;
+    position: absolute;
+    border: none;
+    box-shadow: 0px 0px 5px 1px black;
+    background-color:darkgrey;
+}
+h2 {
+    margin: 15px;
+}
+p {
+    margin: 15px;
+    width: 90%;
+}
