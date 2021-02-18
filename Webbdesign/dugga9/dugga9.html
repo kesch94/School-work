@@ -7,25 +7,29 @@
             body {
                 background: linear-gradient(blue, blueviolet, pink);
                 color: white;
-                position: absolute;
+                background-position: absolute;
                 background-repeat: repeat;
                 background-attachment: fixed;
-                font-weight: bold;
+                font-family: sans-serif;
                 font-size: 20px;
+                font-weight:bold;
             }
             #container {
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: row;
+                align-items: center;
             } 
             
             #stig {
                 background-image: linear-gradient(to right, red, darkblue, white, orange);
                 transition: box-shadow 2s;
                 width: 300px;
-                height: 280px;
+                height: 300px;
                 border-radius: 50%;
                 text-align: center;
+                margin-top:0px;
+                transition: all 2.0s linear; 
             }
             #stig:hover {
                 box-shadow: 10px 10px 40px black;
@@ -40,11 +44,11 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                margin-top:25px;
+                transition: all 2.0s linear; 
             }
             #ellen:hover {
                 border-radius: 0% 50% 50% 50%;
-                transition: all 2.0s ease-in-out;
-
             }
             #hilding {
                 background-image: url("lama_eye_crop.jpg");
@@ -55,10 +59,12 @@
                 margin: 10px;
                 justify-content: center;
                 align-items: center;
+                margin-top:25px;
+                transition: all 2.0s linear; 
             }
             #hilding:hover {
                 border-radius: 0% 50% 50% 50%;
-                transition: all 2.0s ease-in-out;
+                transition: all 2.0s linear;
             }
             #nea {
                 background-image: url("lama_eye_crop.jpg");
@@ -72,12 +78,12 @@
                 align-items: center;
                 opacity: 40%;
                 margin: 20px;
+                margin-top:25px;
+                transition: all 2.0s linear; 
             }
             #nea:hover {
                 opacity: 100%;
-                transition: all 2.0s ease-in-out;
             }   
-
         </style>
     </head>
     <body lang="eu-us">

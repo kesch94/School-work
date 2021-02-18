@@ -33,9 +33,10 @@ p {
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     width: 350px;
+    font-size: 110%;
 }
 q {
-    font-size: 80%;
+    font-size: 70%;
 }
 h3 {
     color:green;

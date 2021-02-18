@@ -1,83 +1,120 @@
-#top-border {
+#header {
     display:flex;
-    background-color: grey;
+    background: black;
+    opacity: 80%;
     justify-content:baseline;
-    align-items:center;
+    align-items: row;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-bottom: 10px;
+    height: auto;
+    width: auto;
 }
-h1 {
-    margin-right: auto;
-    padding-left: 10px;
+figcaption {
+    color:black;
+    opacity: 90%;
+    font-family: sans-serif;
+    font-size: 150%;
+    max-width: 500px;
 }
 body {
-    background-color: black;
-    margin: 0px;
+    background-position: absolute;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    height: auto;
+    width: auto;
 }
+#produkter {
+    height: 2600px;
+}
+a {
+    color:blue;
+    opacity: 70%;
+    font-size:100%;
+}
+#footer {
+    background-color: grey;
+    text-align: center;
+    position:fixed;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    bottom:0;
+    width:100%;
+    height: 50px;
+    opacity: 80%;
+}
+#tomt {
+    margin-top:125px;
+}
+#black {
+    color:black;
+}
+#submit
+{
+    color:black;
+    background-image: transparent;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+    border-radius: 50%;
+    border-color: black;    
+}
+fieldset {
+    width: 400px;
+    height: 200px;
+    text-align: left;
+    border-radius: 10px;
+    border-width: 5px;
+    border-style: double;
+    padding: 20px;
+}
+label {
+    color:white;
+}
+ul {
+    color:black;
+    margin-left: 10px;
+}
+legend {
+    color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    text-align: left;
+    text-transform: uppercase;
+}
+h1 {
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+    color:white;
+    opacity: 90%;
+}
+
 img {
     width: 400px;
     height: 400px;
+    border-radius: 5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: black;
 }
 nav {
-    padding-right:
+    color: grey;
+    opacity: 90%;
 }
 .nav1 {
     padding: 5px 10px;
     font-weight: bold;
     font-size: 25px;
     margin-right:10px;
+    border-color: transparent;
     color: white;
-    background-color: black;
+    background-color: transparent;
     border-radius: 50% 50% 50% 50%;
 }
-.nav2 {
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 25px;
-    margin-right: 10px;
-    color: white;
-    background-color: black;
-    border-radius: 50% 50% 50% 50%;
-}
-.nav3 {
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 25px;
-    margin-right: 10px;
-    color: white;
-    background-color: black;
-    border-radius: 50% 50% 50% 50%;
-}
-.nav4 {
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 25px;
-    margin-right: 10px;
-    color: white;
-    background-color: black;
-    border-radius: 50% 50% 50% 50%;
-}
-.plus {
-    bottom: 10px;
-    right: 10px;
-    padding: 12px 20px;
-    background-color: crimson;
-    border-radius: 50% 50% 50% 50%;
-    border: none;
-    margin: 20px;
-    position: absolute;
-    font-size: 30px;
-}
-#sidebar {
-    background-color: grey;
-    padding: 10px;
-    height: 100%;
-    width: 60px;
-    position: absolute;
-}
-#b {
-    display: flex;
-    margin-right: 0%;
-    width: 100%;
-}
+
 #text {
     margin-left: 10px;
     position: relative;
@@ -87,17 +124,37 @@ nav {
     position: relative;
 }
 #main-text {
-    margin-left: 80px;
-    margin-right: auto;
-    position: absolute;
     border: none;
-    box-shadow: 0px 0px 5px 1px black;
-    background-color:darkgrey;
+    display: flex;
+    padding-top: 20px;
+    height: 750px;
+    background-image: url(computers.jpeg)
 }
 h2 {
-    margin: 15px;
+    margin-left:30px;
+    margin-right: 10px;
+    color:white;
+    opacity: 90%;
+    max-width: 50%;
 }
 p {
-    margin: 15px;
     width: 90%;
+    margin-left: 35px;
+    max-width: 70%;
+    color:white;
+    opacity: 90%;
+}
+#kontakth2 {
+    text-align: center;
+}
+#formulär-p {
+    font-variant: small-caps;
+    max-width: 300px;
+    font-size: 120%;
+}
+#copyright {
+    color: black;
+    font-weight: bold;
+    font-size: 120%;
+    margin-left: 30px;
 }
