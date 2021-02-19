@@ -1,7 +1,64 @@
 
-Skidåkare(Namn, vikt)
-Tävling(Namn, date,)
-Deltagare(Namn, Tävling)
+Skidåkare(Namn(PK), vikt, skidor(FK),).................A
+
+Tävling(Namn(PK),deltagare, datum, tid, snö(FK)).......B
+
+Deltagare(Namn(PK), Tävling(FK)).......................C
+
+Skidor(Nr(Key), Fabrikat, Spann, Valla?, Struktur? Väder).................................................D
+
+Valla(Namn(PK), Typ)...................................E
+Struktur(Namn(PK), Typ)................................F
+
+Snö(Typ(PK), Luftf.)...................................G
+
+Rillverktyg(Fabrikat(key), Kommentar)..................H
+Väder(Typ(PK), Temp)...................................I
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
 
