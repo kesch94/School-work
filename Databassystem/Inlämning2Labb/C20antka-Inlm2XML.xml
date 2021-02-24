@@ -7,10 +7,16 @@
 <!ELEMENT luftfuktighet (#PCDATA)>
 <!ELEMENT väder (temperatur)>
 <!ELEMENT temperatur (#PCDATA)>
+-------------------------------------
+<!ELEMENT skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn)>
+
 <!ATTLIST tävling namn ID #REQUIRED>
 <!ATTLIST skidåkare namn ID #REQUIRED>
 <!ATTLIST snö typ ID #REQUIRED>
 <!ATTLIST väder typ ID #REQUIRED>
+--------------------------------------
+<!ATTLIST nr,skidakareNamn typ id #REQUIRED>
+
 <root>
   <tävling>
     <skidåkare>Linda Snabb<skidåkare>
@@ -45,5 +51,4 @@
   </skidor>
 </root>
 
-<!ELEMENT skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn)>
-<!ATTLIST nr,skidakareNamn typ id #REQUIRED>
+
