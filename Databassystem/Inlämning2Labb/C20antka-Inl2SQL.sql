@@ -3,15 +3,34 @@ create database c20antka;
 use c20antka;
 
 CREATE TABLE skidakare (
-    namn VARCHAR(30),
-    vikt INT(2),
+    namn VARCHAR(30) NOT NULL,
+    vikt INT,
     PRIMARY KEY (namn)
 )  ENGINE=INNODB;
 
-
 CREATE TABLE tavling (
-    namn VARCHAR(30),
+    namn VARCHAR(30) NOT NULL,
     datum DATE,
+    PRIMARY KEY (namn)
+)  ENGINE=INNODB;
+
+CREATE TABLE deltagare (
+    tavlingNamn VARCHAR(30) NOT NULL,
+    skidakareNamn VARCHAR(30) NOT NULL,
+    PRIMARY KEY (tavlingNamn , skidakareNamn),
+    FOREIGN KEY (tavlingNamn) REFERENCES tavling(namn),
+    FOREIGN KEY (skidakareNamn) REFERENCES skidakare(namn)
+)  ENGINE=INNODB;
+
+CREATE TABLE struktur (
+    namn VARCHAR(30),
+    grovlek VARCHAR(10),
+    PRIMARY KEY (namn)
+)  ENGINE=INNODB;
+
+CREATE TABLE valla (
+    namn VARCHAR(30),
+    typ VARCHAR(30),
     PRIMARY KEY (namn)
 )  ENGINE=INNODB;
 
@@ -21,70 +40,65 @@ CREATE TABLE vader (
     PRIMARY KEY (typ)
 )  ENGINE=INNODB;
 
+CREATE TABLE rillverktyg (
+    fabrikat VARCHAR(30) NOT NULL,
+    kommentar VARCHAR(50),
+    strukturNamn VARCHAR(30) NOT NULL,
+    PRIMARY KEY (fabrikat),
+    FOREIGN KEY (strukturNamn) REFERENCES struktur(namn)
+)  ENGINE=INNODB;
+
 CREATE TABLE sno (
     typ VARCHAR(20),
     luftfuktighet VARCHAR(4),
     PRIMARY KEY (typ)
 )  ENGINE=INNODB;
 
-CREATE TABLE valla (
-    namn VARCHAR(30),
-    typ VARCHAR(30),
-    PRIMARY KEY (namn)
-)  ENGINE=INNODB;
-
-CREATE TABLE struktur (
-    namn VARCHAR(30),
-    grovlek VARCHAR(10),
-    PRIMARY KEY (namn)
-)  ENGINE=INNODB;
-
 CREATE TABLE skidor (
     nr INT NOT NULL,
-    skidakareNamn VARCHAR(30),
+    skidakareNamn VARCHAR(30) NOT NULL,
     fabrikat VARCHAR(30),
     spann VARCHAR(30),
-    snoTyp VARCHAR(20),
-    vaderTyp VARCHAR(20),
-    strukturNamn VARCHAR(30),
-    PRIMARY KEY (nr , skidakareNamn)
-)  ENGINE=INNODB;
-
-CREATE TABLE rillverktyg (
-    fabrikat VARCHAR(30),
-    kommentar VARCHAR(50),
-    strukturNamn VARCHAR(30),
-    PRIMARY KEY (fabrikat)
-)  ENGINE=INNODB;
-
-CREATE TABLE deltagare (
-    tavlingNamn VARCHAR(30),
-    skidakareNamn VARCHAR(30),
-    PRIMARY KEY (tavlingNamn , skidakareNamn)
-)  ENGINE=INNODB;
-
-CREATE TABLE tavlingSno (
-    tavlingNamn VARCHAR(30),
-    snoTyp VARCHAR(20),
-    PRIMARY KEY (tavlingNamn , snoTyp)
-)  ENGINE=INNODB;
-
-CREATE TABLE tavlingVader (
-    tavlingNamn VARCHAR(30),
-    vaderTyp VARCHAR(20),
-    tid TIME,
-    PRIMARY KEY (tavlingNamn , vaderTyp)
+    snoTyp VARCHAR(20) NOT NULL,
+    vaderTyp VARCHAR(20) NOT NULL,
+    strukturNamn VARCHAR(30) NOT NULL,
+    PRIMARY KEY (nr , skidakareNamn),
+    FOREIGN KEY (snoTyp) REFERENCES sno (typ),
+    FOREIGN KEY (strukturNamn) REFERENCES struktur(namn),
+    FOREIGN KEY (skidakareNamn) REFERENCES skidakare(namn),
+    FOREIGN KEY (vaderTyp) REFERENCES vader(typ)
 )  ENGINE=INNODB;
 
 CREATE TABLE skidValla (
     vallaNamn VARCHAR(20) NOT NULL,
     skidNr INT NOT NULL,
     skidakareNamn VARCHAR(30) NOT NULL,
-    PRIMARY KEY (vallaNamn , skidNr , skidakareNamn)
+    PRIMARY KEY (vallaNamn , skidNr , skidakareNamn),
+    FOREIGN KEY (vallaNamn) REFERENCES valla(namn),
+    FOREIGN KEY (skidNr) REFERENCES skidor(nr),
+    FOREIGN KEY (skidakareNamn) REFERENCES skidakare(namn)
+)  ENGINE=INNODB;
+
+CREATE TABLE tavlingSno (
+    tavlingNamn VARCHAR(30) NOT NULL,
+    snoTyp VARCHAR(20) NOT NULL,
+    PRIMARY KEY (tavlingNamn , snoTyp),
+    FOREIGN KEY (snoTyp) REFERENCES sno(typ),
+    FOREIGN KEY (tavlingNamn) REFERENCES tavling(namn)
+)  ENGINE=INNODB;
+
+CREATE TABLE tavlingVader (
+    tavlingNamn VARCHAR(30) NOT NULL,
+    vaderTyp VARCHAR(20) NOT NULL,
+    tid TIME,
+    PRIMARY KEY (tavlingNamn , vaderTyp),
+    FOREIGN KEY (vaderTyp) REFERENCES vader(typ),
+    FOREIGN KEY (tavlingNamn) REFERENCES tavling(namn)
 )  ENGINE=INNODB;
 
 
 /*skidåkare*/
+insert into skidakare(namn,vikt) values ('Markus Hellner','72');
 insert into skidakare(namn,vikt) values ('Therese Johaug','46'); 
 insert into skidakare(namn,vikt) values ('Charlotte Kalla','60');
 insert into skidakare(namn,vikt) values ('Anna Haag','62');
@@ -94,18 +108,6 @@ insert into skidakare(namn,vikt) values ('Marit Björgren','52');
 insert into skidakare(namn,vikt) values ('Blixten McQueen','65');
 insert into skidakare(namn,vikt) values ('Anton Karlsson','100');
 insert into skidakare(namn,vikt) values ('Okki Skidonen','70');
-
-/*skidor*/
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('3','Markus Hellner','Fischer','Klisterskida','Slask','regnigt','Grov Julgran');
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('10','Anna Haag','Fischer','Lågt','Hård snö','Kallt','Snedskuren');
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('4','Stina Nilsson','Salomon','Högt','Lös snö','klart','Klister');
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('5','Emma Wikén', 'Rosignol','Medel','Blandsnö','mulet','Klister');
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('7','Charlotte Kalla','Fischer','Klisterskida','Slask','regnigt','Grov Julgran');
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('1', 'Anton Karlsson', 'Salomon', 'Lågt', 'Hård snö', 'Kallt', 'Snedskuren');
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('2', 'Blixten McQueen', 'Rosignol', 'Högt', 'Lös snö','klart', 'Rakskuren');
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('3', 'Marit Björgren', 'Madhus', 'lågt', 'Medel kallt','klart', 'Snedskuren');
-insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('2','Markus Hellner','Fischer','Klisterskida','Slask','Varmt','Grov Julgran');
-
 
 /*Tävling*/
 insert into tavling(namn,datum) values ('Mördarbacken','2016-01-10'); 
@@ -130,6 +132,7 @@ insert into deltagare(tavlingNamn,skidakareNamn) values ('Lenzerheide', 'Charlot
 insert into deltagare(tavlingNamn,skidakareNamn) values ('Lenzerheide', 'Okki Skidonen');
 insert into deltagare(tavlingNamn,skidakareNamn) values ('Oberstdorf', 'Charlotte Kalla');
 insert into deltagare(tavlingNamn,skidakareNamn) values ('Oberstdorf', 'Anton Karlsson');
+insert into deltagare(tavlingNamn,skidakareNamn) values ('Vasarejset', 'Anton Karlsson');
 
 
 /*Struktur*/
@@ -137,17 +140,6 @@ insert into struktur(namn,grovlek) values ('Grov Julgran','2mm');
 insert into struktur(namn,grovlek) values ('Snedskuren','5mm');
 insert into struktur(namn,grovlek) values ('Klister','1mm');
 insert into struktur(namn,grovlek) values ('Rakskuren','7mm');
-
-/*tavlingVader*/
-insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Oberstdorf','Extremt kallt','08:00');
-insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Soligt','07:00');
-insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Spöregn','09:00');
-insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Mördarbacken','Medel kallt','10:00');
-insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Julsprinten','Klart','11:00');
-insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Vasaloppet','Spöregn','10:00');
-insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Vasaloppet','Medel kallt','12:00');
-insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Varmt','12:00');
-
 
 /*valla*/
 insert into valla(namn,typ) values ('Swix KX35','Klister') ;
@@ -163,6 +155,8 @@ insert into vader(typ, temp) values ('Spöregn', '+0');
 insert into vader(typ, temp) values ('Extremt varmt','+15');
 insert into vader(typ, temp) values ('Medel kallt', '-10');
 insert into vader(typ, temp) values ('Klart', '+2');
+insert into vader(typ, temp) values ('Regnigt', '+2');
+
 
 /*rillverktyg*/
 insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Swix','Helt otroligt snabb i kallföre','Snedskuren'); 
@@ -171,28 +165,52 @@ insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Rillmästaren'
 insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Rillking','Dålig i blöttväder','Grov Julgran');
 insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Ril','Dalig','Grov Julgran');
 
+/*Snö*/
+insert into sno(typ,luftfuktighet) values ('Slask','100%');
+insert into sno(typ,luftfuktighet) values ('Blöt','80%');
+insert into sno(typ,luftfuktighet) values ('Kramsnö','60%');
+insert into sno(typ,luftfuktighet) values ('Hård','20%');
+insert into sno(typ,luftfuktighet) values ('Lös','70%');
+
+/*skidor*/
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('3','Markus Hellner','Fischer','Klisterskida','Slask','Regnigt','Grov Julgran');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('10','Anna Haag','Fischer','Lågt','Hård','Medel kallt','Snedskuren');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('4','Stina Nilsson','Salomon','Högt','Lös','Klart','Klister');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('5','Emma Wikén', 'Rosignol','Medel','Kramsnö','Regnigt','Klister');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('7','Charlotte Kalla','Fischer','Klisterskida','Slask','Regnigt','Grov Julgran');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('1', 'Anton Karlsson', 'Salomon', 'Lågt', 'Hård', 'Extremt kallt', 'Snedskuren');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('8', 'Blixten McQueen', 'Rosignol', 'Högt', 'Lös','Extremt varmt', 'Rakskuren');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('6', 'Marit Björgren', 'Madhus', 'Lågt', 'Hård','Klart', 'Snedskuren');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('3', 'Marit Björgren', 'Madhus', 'Högt', 'Hård','Klart', 'Snedskuren');
+insert into skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn) values ('2','Markus Hellner','Fischer','Klisterskida','Slask','Extremt varmt','Grov Julgran');
+
 /*Skidavalla*/
 insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Swix KX35','4','Stina Nilsson');
 insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Swix KX35','5','Emma Wikén');
 insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Swix HF8','7','Charlotte Kalla');
 insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Swix KX45','7','Charlotte Kalla');
-insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Swix KX35','3','Marcus Hellner');
+insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Swix KX35','3','Markus Hellner');
 insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Skigo HF-GUL','6','Marit Björgren');
 
-
-
 /*TävlingSnö*/
-insert into tavlingSno(tavlingNamn,snoTyp) values ('Lenzerheide','stenhård');
-insert into tavlingSno(tavlingNamn,snoTyp) values ('Lenzerheide','mjuk');
-insert into tavlingSno(tavlingNamn,snoTyp) values ('Mördarbacken','hård');
-insert into tavlingSno(tavlingNamn,snoTyp) values ('Julsprinter', 'kramsnö');
-insert into tavlingSno(tavlingNamn,snoTyp) values ('Vasaloppet', 'blöt');
+insert into tavlingSno(tavlingNamn,snoTyp) values ('Lenzerheide','Hård');
+insert into tavlingSno(tavlingNamn,snoTyp) values ('Lenzerheide','Lös');
+insert into tavlingSno(tavlingNamn,snoTyp) values ('Mördarbacken','Hård');
+insert into tavlingSno(tavlingNamn,snoTyp) values ('Julsprinten', 'Kramsnö');
+insert into tavlingSno(tavlingNamn,snoTyp) values ('Vasaloppet', 'Blöt');
 
-/*Snö*/
-insert into sno(typ,luftfuktighet) values ('slask','100%');
-insert into sno(typ,luftfuktighet) values ('blöt','80&');
-insert into sno(typ,luftfuktighet) values ('kramsnö','60%');
-insert into sno(typ,luftfuktighet) values ('hård', '20%');
+/*tavlingVader*/
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Oberstdorf','Extremt kallt','08:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Soligt','07:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Spöregn','09:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Mördarbacken','Medel kallt','10:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Julsprinten','Klart','11:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Vasaloppet','Spöregn','10:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Vasaloppet','Medel kallt','12:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Extremt varmt','12:00');
+
+select *
+from skidakare;
 
 /*Fråga 1 Frågespråk*/
 SELECT 
@@ -220,29 +238,28 @@ WHERE
    
 /*Fråga 4 Frågespråk*/
 SELECT 
-    skidakareNamn
+	*
 FROM
     skidor
 WHERE
-    fabrikat = 'madhus' AND nr = '3'
-        AND strukturNamn = 'Snedskuren';
+    fabrikat = 'Madhus' AND skidor.nr = '3'
+	AND skidor.strukturNamn = 'Snedskuren';
         
 /*Fråga 5 Frågespråk*/
 SELECT 
-    *
+    tavlingVader.tavlingNamn,
+    tavlingVader.tid,
+    skidor.nr,
+    skidor.skidakareNamn,
+    skidor.vaderTyp
 FROM
-    tavlingVader
-WHERE
-    tavlingVader.tavlingNamn = 'Lenzerheide'
-        AND tavlingVader.tid = '12:00';
-/*Tar reda på tävlingensväder för att sedan använda det som condition i nästa sökning, delar upp problemet för att enklare lösa det*/
-SELECT 
-    skidor.nr, skidor.skidakareNamn, skidor.vaderTyp
-FROM
+    tavlingVader,
     skidor
 WHERE
-    skidor.vaderTyp = 'Varmt'
-        AND skidor.nr = '2';
+    tavlingVader.tavlingNamn = 'Lenzerheide'
+        AND tavlingVader.tid = '12:00'
+        AND skidor.nr = '2'
+        AND skidor.skidakareNamn = 'Markus Hellner';
 
  /*Fråga 6 Frågespråk*/ 
 SELECT 
@@ -252,7 +269,7 @@ FROM
         INNER JOIN
     skidakare B ON A.namn > B.namn AND A.vikt = B.vikt;
     
-/*Fråga 7 Frågespråk */
+/*Fråga 7 Frågespråk*/
 SELECT 
     skidakare.namn
 FROM
@@ -328,24 +345,16 @@ FROM
 WHERE
     kommentar LIKE '_____';
 
-/*Frågespråk*/
+/*Frågespråk 16*/
 SELECT 
     MIN(typ)
 FROM
     vader;
 
 /*Fråga 17 Frågespråk*/
-SELECT 
-    MAX(datum)
-FROM
-    tavling;
------------------------------
-SELECT 
-    tavling.namn
-FROM
-    tavling
-WHERE
-    datum = '2017-02-20';
+SELECT max(datum)
+from tavling
+where datum <= CURDATE();
 
 /*Fråga 18 Frågespråk curdate för dagens datum -1 för gårdagen, skriven 2021-02-21*/
 SELECT 
@@ -363,21 +372,26 @@ WHERE
     vikt BETWEEN '50' AND '60';
 
 /*Fråga 20 Frågespråk*/
-DELETE FROM skidakare 
-WHERE
-    namn = 'Anna Haag';
 DELETE FROM deltagare 
 WHERE
     skidakareNamn = 'Anna Haag';
 DELETE FROM skidor 
 WHERE
     skidakareNamn = 'Anna Haag';
+DELETE FROM skidakare 
+WHERE
+    namn = 'Anna Haag';
 
 /*Fråga 21 Frågespråk*/
 DELETE FROM skidor 
 WHERE
     nr = '2'
     AND skidakareNamn = 'Markus Hellner';
+
+
+
+    
+    
     
 
 

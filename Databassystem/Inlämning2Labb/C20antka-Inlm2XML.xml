@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bookstore>
-  <book category="cooking">
-    <title lang="en">Everyday Italian</title>
-    <author>Giada De Laurentiis</author>
-    <year>2005</year>
-    <price>30.00</price>
-  </book>
-  <book category="children">
-    <title lang="en">Harry Potter</title>
-    <author>J K. Rowling</author>
-    <year>2005</year>
-    <price>29.99</price>
-  </book>
-  <book category="web">
-    <title lang="en">Learning XML</title>
-    <author>Erik T. Ray</author>
-    <year>2003</year>
-    <price>39.95</price>
-  </book>
-</bookstore>
+<!ELEMENT tävling(skidåkare*, snö*, väder*, datum)>
+<!ELEMENT datum (#PCDATA)>
+<!ELEMENT skidåkare (vikt)>
+<!ELEMENT vikt (#PCDATA)>
+<!ELEMENT snö(luftfuktighet)>
+<!ELEMENT luftfuktighet (#PCDATA)>
+<!ELEMENT väder (temperatur)>
+<!ELEMENT temperatur (#PCDATA)>
+<!ATTLIST tävling namn ID #REQUIRED>
+<!ATTLIST skidåkare namn ID #REQUIRED>
+<!ATTLIST snö typ ID #REQUIRED>
+<!ATTLIST väder typ ID #REQUIRED>
+<root>
+  <tävling>
+    <skidåkare>Linda Snabb<skidåkare>
+    <snö>Lös</snö>
+    <väder>Varmt</väder>
+    <datum>2021-02-21</datum>
+  </tävling>
+  <datum>
+    #PCDATA
+  <datum/>
+  <skidåkare>
+    <vikt>60kg</vikt>
+  </skidåkare>
+  <vikt>
+    #PCDATA
+  </vikt>
+  <snö>
+    <luftfuktighet>60%</luftfuktighet>
+  </snö>
+  <luftfuktighet>
+    #PCDATA
+  </luftfuktighet>  
+  <väder>
+    <temperatur>#PCDATA</temperatur>
+  </väder>
+  <temperatur>
+    #PCDATA
+  </temperatur>
+  <skidor>
+    <nr>2</nr>
+    <skidakareNamn>Markus Hellner</skidakareNamn>
+  </skidor>
+</root>
+
+<!ELEMENT skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn)>
+<!ATTLIST nr,skidakareNamn typ id #REQUIRED>
