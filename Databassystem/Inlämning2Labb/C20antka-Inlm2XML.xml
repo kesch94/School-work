@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!ELEMENT tävling(skidåkare*, snö*, väder*, datum)>
+<!DOCTYPE note [
+<!ELEMENT tävling (skidåkare*, snö*, väder*, datum)>
 <!ELEMENT datum (#PCDATA)>
 <!ELEMENT skidåkare (vikt)>
 <!ELEMENT vikt (#PCDATA)>
-<!ELEMENT snö(luftfuktighet)>
+<!ELEMENT snö (luftfuktighet)>
 <!ELEMENT luftfuktighet (#PCDATA)>
 <!ELEMENT väder (temperatur)>
-<!ELEMENT temperatur (#PCDATA)>
--------------------------------------
-<!ELEMENT skidor(nr,skidakareNamn,fabrikat,spann,snoTyp,vaderTyp,strukturNamn)>
-
+<!ELEMENT skidor (nr, skidåkare, fabrikat, spann, snötyp)>
+<!ELEMENT valla (namn, typ)>
+<!ELEMENT struktur (namn, grovlek)>
+<!ATTLIST struktur namn ID #REQUIRED> 
+<!ATTLIST valla namn ID #REQUIRED> 
+<!ATTLIST skidor nr,skidåkare ID #REQUIRED>
 <!ATTLIST tävling namn ID #REQUIRED>
 <!ATTLIST skidåkare namn ID #REQUIRED>
 <!ATTLIST snö typ ID #REQUIRED>
 <!ATTLIST väder typ ID #REQUIRED>
---------------------------------------
-<!ATTLIST nr,skidakareNamn typ id #REQUIRED>
+]>
 
 <root>
-  <tävling>
-    <skidåkare>Linda Snabb<skidåkare>
+  <tävling namn="Oberstdorf">
+    <skidåkare>Markus Hellner</skidåkare>
     <snö>Lös</snö>
     <väder>Varmt</väder>
     <datum>2021-02-21</datum>
@@ -27,28 +29,19 @@
   <datum>
     #PCDATA
   <datum/>
-  <skidåkare>
+  <skidåkare namn="Charlotte Kalla">
     <vikt>60kg</vikt>
   </skidåkare>
   <vikt>
     #PCDATA
   </vikt>
-  <snö>
+  <snö typ="Lös">
     <luftfuktighet>60%</luftfuktighet>
   </snö>
   <luftfuktighet>
     #PCDATA
   </luftfuktighet>  
-  <väder>
-    <temperatur>#PCDATA</temperatur>
+  <väder typ="Extremt varmt">
+    <temperatur>+15</temperatur>
   </väder>
-  <temperatur>
-    #PCDATA
-  </temperatur>
-  <skidor>
-    <nr>2</nr>
-    <skidakareNamn>Markus Hellner</skidakareNamn>
-  </skidor>
 </root>
-
-
