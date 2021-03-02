@@ -19,7 +19,7 @@
 <!ATTLIST väder typ ID #REQUIRED>
 ]>
 
-<root>
+<Databas>
   <tävling namn="Oberstdorf">
     <skidåkare>Markus Hellner</skidåkare>
     <snö>Lös</snö>
@@ -44,4 +44,21 @@
   <väder typ="Extremt varmt">
     <temperatur>+15</temperatur>
   </väder>
-</root>
+</Databas>
+
+
+<tävling namn="Mördarbacken">
+  <skidåkare namn="Markus Hellner"> 
+    <vikt>75</vikt>
+  </skidåkare>
+  <snö typ="slask">
+    <luftfuktighet>100%</luftfuktighet>
+  </snö>
+  <väder typ="Extremt kallt">
+    <temperatur>-20</temperatur>
+  </väder>
+  <datum>
+   2016-05-01
+  </datum>
+</tävling>
+
