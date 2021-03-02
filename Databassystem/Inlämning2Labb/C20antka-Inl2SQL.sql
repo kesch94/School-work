@@ -193,6 +193,7 @@ insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Swix KX35','3','M
 insert into skidValla(vallaNamn,skidNr,skidakareNamn) values ('Skigo HF-GUL','6','Marit Björgren');
 
 /*TävlingSnö*/
+insert into tavlingSno(tavlingNamn,snoTyp) values ('Oberstdorf','Slask');
 insert into tavlingSno(tavlingNamn,snoTyp) values ('Lenzerheide','Hård');
 insert into tavlingSno(tavlingNamn,snoTyp) values ('Lenzerheide','Lös');
 insert into tavlingSno(tavlingNamn,snoTyp) values ('Mördarbacken','Hård');
@@ -203,6 +204,10 @@ insert into tavlingSno(tavlingNamn,snoTyp) values ('Vasaloppet', 'Blöt');
 insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Oberstdorf','Extremt kallt','08:00');
 insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Soligt','07:00');
 insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Spöregn','09:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Extremt kallt','11:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Medel kallt','12:30');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Klart','13:00');
+insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Lenzerheide','Regnigt','17:00');
 insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Mördarbacken','Medel kallt','10:00');
 insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Julsprinten','Klart','11:00');
 insert into tavlingVader(tavlingNamn,vaderTyp,tid) values ('Vasaloppet','Spöregn','10:00');
@@ -282,15 +287,26 @@ WHERE
         WHERE
             skidakare.namn = deltagare.skidakareNamn); 
             
-/*Fråga 8 Frågespråk EJ KLAR*/
-SELECT *
-FROM tavlingVader
-WHERE NOT EXISTS (SELECT * FROM vader
-WHERE NOT EXISTS (SELECT * FROM tavling
-WHERE vader.typ=tavlingVader.typ and
-T=person.pnr));
+/*Fråga 8 Frågespråk*/
+SELECT 
+    tavling.namn
+FROM
+    tavling
+WHERE
+    NOT EXISTS( SELECT 
+            *
+        FROM
+            vader
+        WHERE
+            NOT EXISTS( SELECT 
+                    *
+                FROM
+                    tavlingVader
+                WHERE
+                    tavlingVader.vaderTyp = vader.typ
+                        AND tavling.namn = tavlingVader.tavlingNamn));
 
-
+	
 /*Fråga 9 Frågespråk */
 SELECT 
     snoTyp
@@ -299,10 +315,11 @@ FROM
 
 /*Fråga 10 Frågespråk EJ KLAR */
 SELECT 
-    COUNT(deltagare.skidakareNamn)
+    skidakareNamn
 FROM
     deltagare
-GROUP BY skidakareNamn;
+GROUP BY skidakareNamn
+HAVING COUNT(skidakareNamn) = 2;
 
 /*Fråga 11 Frågespråk*/
 SELECT 
@@ -352,9 +369,12 @@ FROM
     vader;
 
 /*Fråga 17 Frågespråk*/
-SELECT max(datum)
-from tavling
-where datum <= CURDATE();
+SELECT 
+    MAX(datum)
+FROM
+    tavling
+WHERE
+    datum <= CURDATE();
 
 /*Fråga 18 Frågespråk curdate för dagens datum -1 för gårdagen, skriven 2021-02-21*/
 SELECT 
