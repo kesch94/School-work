@@ -12,7 +12,7 @@
 <!ELEMENT struktur (namn, grovlek)>
 <!ATTLIST struktur namn ID #REQUIRED> 
 <!ATTLIST valla namn ID #REQUIRED> 
-<!ATTLIST skidor nr,skidåkare ID #REQUIRED>
+<!ATTLIST skidor nr skidåkare ID #REQUIRED>
 <!ATTLIST tävling namn ID #REQUIRED>
 <!ATTLIST skidåkare namn ID #REQUIRED>
 <!ATTLIST snö typ ID #REQUIRED>
@@ -46,19 +46,34 @@
   </väder>
 </Databas>
 
+//////////////////////////////XML 2.0//////////////////////////////////////////////////
 
 <tävling namn="Mördarbacken">
-  <skidåkare namn="Markus Hellner"> 
+  <datum>2016-05-01</datum> 
+  <skidåkare namn="Markus Hellner">
+    <namn>Markus Hellner</namn>
+    <namn>Therese Johaug</namn> 
     <vikt>75</vikt>
+    <vikt>48</vikt>
   </skidåkare>
-  <snö typ="slask">
+  <snö>
+    <typ>Slask</typ>
+    <typ>Blöt</typ>
     <luftfuktighet>100%</luftfuktighet>
-  </snö>
-  <väder typ="Extremt kallt">
+    <luftfuktighet>80%</luftfuktighet>
+  </snö>  
+  <väder>
+    <typ>Extremt kallt</typ>
     <temperatur>-20</temperatur>
   </väder>
-  <datum>
-   2016-05-01
-  </datum>
 </tävling>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note [
+<!ELEMENT skidor (nr, skidåkare, fabrikat, spann, snötyp)>
+<!ELEMENT struktur (namn, grovlek)>
+<!ELEMENT valla (namn, typ)>
+<!ATTLIST struktur namn ID #REQUIRED>
+<!ATTLIST valla namn ID #REQUIRED> 
+<!ATTLIST skidor nr skidåkare ID #REQUIRED>
 
