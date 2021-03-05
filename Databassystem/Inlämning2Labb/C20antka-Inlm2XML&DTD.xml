@@ -2,6 +2,7 @@
   <datum>2016-05-01</datum> 
   <skidåkare namn="Markus Hellner">
     <vikt>75</vikt>
+  </skidåkare>
   <skidåkare namn="Therese Johaug"> 
     <vikt>48</vikt>
   </skidåkare>
@@ -24,7 +25,13 @@
 <!ELEMENT skidor (nr, skidåkare, fabrikat, spann, snötyp)>
 <!ELEMENT struktur (namn, grovlek)>
 <!ELEMENT valla (namn, typ)>
+<!ELEMENT fabrikat (#PCDATA)>
+<!ELEMENT spann (#PCDATA)>
+<!ELEMENT snötyp (#PCDATA)>
+<!ELEMENT grovlek (#PCDATA)>
+<!ELEMENT typ (#PCDATA)>
 <!ATTLIST struktur namn ID #REQUIRED>
 <!ATTLIST valla namn ID #REQUIRED> 
-<!ATTLIST skidor nr skidåkare ID #REQUIRED>
+<!ATTLIST skidor nr ID #REQUIRED>
+<!ATTLIST skidor skidåkare ID #REQUIRED>
 
