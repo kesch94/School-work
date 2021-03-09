@@ -1,12 +1,6 @@
 <tävling namn="Mördarbacken">
   <datum>2016-05-01</datum> 
-<<<<<<< HEAD
-  <skidåkare>
-    <namn>Markus Hellner</namn>
-    <namn>Therese Johaug</namn> 
-=======
   <skidåkare namn="Markus Hellner">
->>>>>>> ba5ab8310d83b9edf0f7355c7f9b0b77a9bdd1ea
     <vikt>75</vikt>
   <skidåkare namn="Therese Johaug"> 
     <vikt>48</vikt>
