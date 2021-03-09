@@ -50,7 +50,7 @@
 
 <tävling namn="Mördarbacken">
   <datum>2016-05-01</datum> 
-  <skidåkare namn="Markus Hellner">
+  <skidåkare>
     <namn>Markus Hellner</namn>
     <namn>Therese Johaug</namn> 
     <vikt>75</vikt>
@@ -75,5 +75,5 @@
 <!ELEMENT valla (namn, typ)>
 <!ATTLIST struktur namn ID #REQUIRED>
 <!ATTLIST valla namn ID #REQUIRED> 
-<!ATTLIST skidor nr skidåkare ID #REQUIRED>
+<!ATTLIST skidor nr skidåkare ID #REQUIRED]>
 

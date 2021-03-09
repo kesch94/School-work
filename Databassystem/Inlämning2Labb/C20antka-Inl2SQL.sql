@@ -160,10 +160,10 @@ insert into vader(typ, temp) values ('Regnigt', '+2');
 
 /*rillverktyg*/
 insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Swix','Helt otroligt snabb i kallföre','Snedskuren'); 
-insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Skigo','Skit bra i varm blötsnö','Rakskuren');
-insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Rillmästaren','Bra i slask', 'Klister');
+insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Skigo','Skit bra i varm blötsnö','Snedskuren');
+insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Rillmästaren','Bra i slask och regn', 'Klister');
 insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Rillking','Dålig i blöttväder','Grov Julgran');
-insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Ril','Dalig','Grov Julgran');
+insert into rillverktyg(fabrikat,kommentar,strukturNamn) values ('Ril','Dalig','Rakskuren');
 
 /*Snö*/
 insert into sno(typ,luftfuktighet) values ('Slask','100%');
@@ -239,11 +239,11 @@ SELECT
 FROM
      skidakare,tavling,deltagare
 WHERE
-   skidakare.namn=skidakareNamn AND deltagare.tavlingNamn=tavling.namn AND tavling.datum = "2016-01-05";
+   skidakare.namn=skidakareNamn AND deltagare.tavlingNamn=tavling.namn AND tavling.datum = '2016-01-05';
    
 /*Fråga 4 Frågespråk*/
 SELECT 
-	*
+	skidakareNamn
 FROM
     skidor
 WHERE
@@ -313,7 +313,7 @@ SELECT
 FROM
     tavlingSno;
 
-/*Fråga 10 Frågespråk EJ KLAR */
+/*Fråga 10 Frågespråk*/
 SELECT 
     skidakareNamn
 FROM
