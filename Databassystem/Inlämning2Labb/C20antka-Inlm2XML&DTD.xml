@@ -1,13 +1,8 @@
 <tävling namn="Mördarbacken">
   <datum>2016-05-01</datum> 
-<<<<<<< HEAD
-  <skidåkare>
-    <namn>Markus Hellner</namn>
-    <namn>Therese Johaug</namn> 
-=======
   <skidåkare namn="Markus Hellner">
->>>>>>> ba5ab8310d83b9edf0f7355c7f9b0b77a9bdd1ea
     <vikt>75</vikt>
+  </skidåkare>
   <skidåkare namn="Therese Johaug"> 
     <vikt>48</vikt>
   </skidåkare>
@@ -30,7 +25,13 @@
 <!ELEMENT skidor (nr, skidåkare, fabrikat, spann, snötyp)>
 <!ELEMENT struktur (namn, grovlek)>
 <!ELEMENT valla (namn, typ)>
+<!ELEMENT fabrikat (#PCDATA)>
+<!ELEMENT spann (#PCDATA)>
+<!ELEMENT snötyp (#PCDATA)>
+<!ELEMENT grovlek (#PCDATA)>
+<!ELEMENT typ (#PCDATA)>
 <!ATTLIST struktur namn ID #REQUIRED>
 <!ATTLIST valla namn ID #REQUIRED> 
-<!ATTLIST skidor nr skidåkare ID #REQUIRED]>
+<!ATTLIST skidor nr ID #REQUIRED>
+<!ATTLIST skidor skidåkare ID #REQUIRED>
 
