@@ -17,13 +17,13 @@
     </nav>
 </div>
 <div id="main-text">
-<span id="tomt">
+<div id="tomt">
     <h2 id="kontakth2">Kontaktformulär</h2>
-    <p id="formulär-p">Vänligen fyll i formuläret, så kontaktar vi er</p>
+    <p id="formular-p">Vänligen fyll i formuläret, så kontaktar vi er</p>
     <a href="https://creativecommons.org/publicdomain/zero/1.0/" id="copyright2">All the content on this page is protected by a Public Domain Dedication (CC0).</a>
-</span>
+</div>
 <form action="mailto:information@antonselektronik.se?subject=Information" method="POST">    
-    <fieldset id="tomt"> 
+    <fieldset style="margin-top: 100px;"> 
         <legend>Kontakta oss!</legend>    
         <div><label>Namm: <input type="text" name="Name" placeholder="Skriv namn" required></label></div>
         <div><label>Stad: <input type="text" name="City" placeholder="Skriv stad" required></label></div>
@@ -31,15 +31,15 @@
         <div><label>Telefon: <input type="tel" name="Telephone" placeholder="07X-123 123 00" required></label></div>
         <div><label>E-mejl: <input type="email" name="Email" placeholder="exampel@exempelemejl.com"></label></div>
         <div><label>Ämne: <input type="text" name="Topic" placeholder="Ämne" required></label></div>
-        <div><label>Önskat datum: <input type="date" name="Date" placeholder="åååå-mm-dd" min="2021-03-01" max="2022-03-01" required></label></div>
+        <div><label>Önskat datum: <input type="date" name="Date" min="2021-03-01" max="2022-03-01" required></label></div>
     </fieldset>
     <input id="submit" type="submit" value="Submit"> 
 </form>
 </div>
-<span id="footer">
-    <div><name>ANTON'S ELEKTRONIK AB</name></div>
-    <span><adress>Elektronikgatan 22. Toreboda, 545 99</adress>
-    <tel>Tel: 076-99 9999</tel></span>
-</span>
+<div id="footer">
+    <div><p>ANTON'S ELEKTRONIK AB</p></div>
+    <p>Elektronikgatan 22. Toreboda, 545 99</p> 
+    <div><p>Tel: 076-99 9999</p></div>
+</div>
 </body>
 </html>
