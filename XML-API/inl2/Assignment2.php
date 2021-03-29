@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>PHP 2</title>
+	<title>PHP FORMS</title>
 	<style>
 		#cont{
 			width: 40%;
