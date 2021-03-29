@@ -68,7 +68,7 @@ $trucks=Array(
 ))
 );
 echo "<table>";
-echo "<tr><th>Producer</th><th>City</th><th>Country</th><th>Variations</th></tr>";
+echo "<tr><th>Producer</th><th>City</th><th>Country</th><th colspan='4'>Variations</th></tr>";
 foreach($trucks AS $truck)
 {
 print_r($truck)."<br>";
@@ -80,21 +80,19 @@ else
     {
     echo "<tr style='background:lightblue'>";
     }
+echo "<tr>";
 echo "<td>".$truck[0]."</td>";
 echo "<td>".$truck[1]."</td>";
 echo "<td>".$truck[2]."</td>";
-echo "<td>";
-echo "<table width='100%'>";
-echo "<tr><th>Name</th><th>Drive</th><th>HP</th></tr>";
 foreach($truck[3] AS $variant)
     {
-        echo "<tr>";
-        echo "<td>".$variant[0]."</td>";
-        echo "<td>".$variant[1]."</td>";
-        echo "<td>".$variant[2]."</td>";
-        echo "</tr>";
+        echo "<td>";
+        echo "<table>";
+        echo "<tr><td>".$variant[0]."</td></tr>";
+        echo "<tr><td>".$variant[1]."</td></tr>";
+        echo "<tr><td>".$variant[2]."</td></tr>";
+        echo "</td>";
     }
-    echo "</table>";
 	echo "</tr>";
 }
 echo "</table>";
