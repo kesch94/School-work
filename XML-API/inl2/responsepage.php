@@ -2,12 +2,13 @@
     <html>
         <head>
             <title>PHP FORM</title>
-            <link rel="stylesheet" type="text/css" href="Assignment1.php">
+            <meta charset="utf-8">
+            <link rel="stylesheet" type="text/css" href="Assignment2.php">
         </head>
         <body>
             <pre>
+            <table style='border: 2px solid black'>
             <?php
-  
             $trucks=Array(
                 Array("KrAZ","Kremenchuk","Ukraine",
                       Array(
@@ -57,29 +58,48 @@
                           Array("Tatra T 815","10x10","436Hp"),
                       ))
             );
-    
-    echo "<h1 style='font-family:arial';>Database Trucks</h1>";
-    echo "<form method='post' action='responsepage.php'>";
-    echo "<select name='country'>";
-    echo "<option>Select country</option>";
-    foreach ($trucks as $country) 
-    {
-        echo "<option value='".$country[2]."' >".$country[2]."</option>";
-    }
 
-    echo "</select>";
-    echo "<button>Search!</button>";
-    echo "</form>";
-    
     if(isset($_POST['country']))
     {
-    $incountry=$_POST['country']; 
+        $incountry=$_POST['country']; 
     }
     else
     {
-    $incountry="Empty selection";
+        $incountry="Empty selection";
     } 
+
+    echo "<div style='font-size: 20px;'>" .$incountry."</div>";
+    echo "<tr style='background: grey;'><th style='border: 1px solid black';>truck</th><th style='border: 1px solid black';>city</th><th style='border: 1px solid black';>country</th><th colspan='7' style='border: 1px solid black'>model</th>";
+    foreach($trucks as $country)
+    {
+        if($country[2]==$incountry)
+        {
+            echo "<tr style='background: silver;'>";
+            echo "<td style='border: 1px solid black';>".$country[0]."</td>";
+            echo "<td style='border: 1px solid black';>".$country[1]."</td>";
+            echo "<td style='border: 1px solid black';>".$country[2]."</td>";
+                echo "<td style='border: 1px solid black';>";
+                echo "<table>";
+                echo "<tr><th>Name</th><td></tr>";
+                echo "<tr><th>Wheel</th><td></tr>";
+                echo "<tr><th>Hp</th></tr>";
+                echo "</table>";
+                echo "</td>";
+            foreach($country [3] as $model)
+            {
+                echo "<td style='border: 1px solid black;'>";
+                echo "<table>";
+                echo "<tr><td>".$model[0]."</td></tr>";
+                echo "<tr><td>".$model[1]."</td></tr>";
+                echo "<tr><td>".$model[2]."</td></tr>";
+                echo "</table>";
+                echo "</td>";
+            } 
+        echo "</tr>";  
+        }
+    }; 
     ?>
+            </table>
             </pre>
         </body>
     </html>
