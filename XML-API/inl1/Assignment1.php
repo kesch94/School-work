@@ -73,7 +73,6 @@ echo "<table>";
 echo "<tr><th>Producer</th><th>City</th><th>Country</th><th colspan='6'>Variations</th></tr>";
 foreach($trucks AS $truck)
 {
-
 echo "<tr>";
 if($truck[2]=="Belarus")
     {
