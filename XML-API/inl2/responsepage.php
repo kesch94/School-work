@@ -2,8 +2,20 @@
     <html>
         <head>
             <title>PHP FORM</title>
-            <meta charset="utf-8">
-            <link rel="stylesheet" type="text/css" href="Assignment2.php">
+            <style>
+		table{
+			border-collapse: collapse;
+            width: 100%;
+		}
+		th{
+			color: white;
+			background-color: black;
+		}
+		
+		table, td, th{
+			border: 1px solid black;
+		}
+	</style>
         </head>
         <body>
             <pre>
@@ -69,7 +81,7 @@
     } 
 
     echo "<div style='font-size: 20px;'>" .$incountry."</div>";
-    echo "<tr style='background: grey;'><th style='border: 1px solid black';>truck</th><th style='border: 1px solid black';>city</th><th style='border: 1px solid black';>country</th><th colspan='7' style='border: 1px solid black'>model</th>";
+    echo "<tr style='background: grey;'><th style='border: 1px solid black';>Producer</th><th style='border: 1px solid black';>City</th><th style='border: 1px solid black';>Country</th><th colspan='6' style='border: 1px solid black'>Variations</th>";
     foreach($trucks as $country)
     {
         if($country[2]==$incountry)
