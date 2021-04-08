@@ -3,19 +3,18 @@
         <head>
             <title>PHP FORM</title>
             <style>
-		table{
-			border-collapse: collapse;
-            width: 100%;
-		}
-		th{
-			color: white;
-			background-color: black;
-		}
-		
-		table, td, th{
-			border: 1px solid black;
-		}
-	</style>
+		        table{
+			    border-collapse: collapse;
+                width: 100%;
+		        }
+		        th{
+			    color: white;
+			    background-color: black;
+		        }
+		        table, td, th{
+			    border: 1px solid black;
+		        }
+	        </style>
         </head>
         <body>
             <pre>
