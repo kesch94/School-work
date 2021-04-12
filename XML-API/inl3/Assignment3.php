@@ -15,18 +15,16 @@
 		  			color: white;
 		  		}
 		  		tr, td, th  {
-		  			padding-right: 5px;
+					background-color: blue;
+					padding-right: 5px;
 		  			padding-left: 5px;
 		  		}
-		  		thead {
-		  			background-color: lightgrey;
-		  		}
 		  		h1 {
-		  			margin-left: 17px; 
+		  			margin-left: 17px;
+					color: purple; 
 		  		}
 	  		</style>
 		    <?php
-
 		    echo "<h1>Database Trucks</h1>";
 		    echo "<form method='post' action='Assignment3.php'>";
 			echo "<select name='country'>";
@@ -78,10 +76,6 @@
 						echo "</td>";
 					}
 				}
-			$url="https://wwwlab.iit.his.se/gush/XMLAPI/vehiclesservice/vehicles/";
-			$jsontext = file_get_contents($url);
-			$arr = json_decode($jsontext);
-
     		?>
     		</pre>
    		</table>
