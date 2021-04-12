@@ -81,7 +81,7 @@
     } 
 
     echo "<div style='font-size: 20px;'>" .$incountry."</div>";
-    echo "<tr style='background: grey;'><th style='border: 1px solid black';>Producer</th><th style='border: 1px solid black';>City</th><th style='border: 1px solid black';>Country</th><th colspan='6' style='border: 1px solid black'>Variations</th>";
+    echo "<tr style='background: grey;'><th>Producer</th><th>City</th><th>Country</th><th colspan='6'>Variations</th>";
     foreach($trucks as $country)
     {
         if($country[2]==$incountry)
