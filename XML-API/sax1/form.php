@@ -38,7 +38,7 @@ xml_parser_free($parser);
  
 ?> 
 </select>
-<button>GO</button>                                                                                                                                                   
+<button>Search</button>                                                                                                                                                   
 </form>                                                                                                                                                
 </body>                                                                                                                                               
 </html>    
