@@ -2,7 +2,7 @@
 <body>                                                                                                                                                
 <form method="POST" action="response.php" >
 <select name="choise">
-<option value="none">None</option>                                                                                                                                                 
+<option value="none">Morning_Edition article</option>                                                                                                                                                 
 <?php                                                                                                                                                 
      
 function startElement($parser, $entityname, $attributes) {
