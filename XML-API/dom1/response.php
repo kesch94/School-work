@@ -1,5 +1,6 @@
 <html>
 <head>
+	<title>NEWSPAPER</title>
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
@@ -13,11 +14,11 @@
 			top: 0px;
 		}
 		.new{
-			background-color: #e6ffcc;
+			background-color: grey;
 			width: 340px;
 		}
 		.rev{
-			background-color: #ffe6e6;
+			background-color: lightblue;
 			width: 340px;
 		}
 	</style>
