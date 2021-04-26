@@ -2,19 +2,17 @@
 <head>
 	<title>NEWSPAPER</title>
 	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-
 		span.title{
 			writing-mode: vertical-rl;
 			font-size: 28px;
-			font-family: 'Special Elite', cursive;
+			font-family: cursive;
 		}
 		.story{
 			border: 1px dotted grey;
 			top: 0px;
 		}
 		.new{
-			background-color: grey;
+			background-color: beige;
 			width: 340px;
 		}
 		.rev{
@@ -74,9 +72,7 @@
 			echo "</td>";
 		}		
 		echo "</tr>";
-    }
-
-  
+    }  
 ?>
 </table>
 </body>
