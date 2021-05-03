@@ -9,7 +9,7 @@
 	</xsl:template>
 	
 	<xsl:template match="NEWSPAPER">
-		<tr style="border: 2px dotted black;">
+		<tr style="border: 2px solid black;">
 			<td style="font-family: 'Chelsea Market', cursive">
 				<xsl:value-of select="./@*"/>
 			</td>

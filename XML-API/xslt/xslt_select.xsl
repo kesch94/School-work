@@ -5,7 +5,7 @@
             <select name='paper'>
                 <xsl:apply-templates/>
             </select>
-            <button>Select</button>
+            <button>send</button>
         </form>
     </xsl:template>
     <xsl:template match="NEWSPAPER[@TYPE='Morning_Edition']">
