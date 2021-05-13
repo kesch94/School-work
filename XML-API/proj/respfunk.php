@@ -16,7 +16,7 @@
 	</style>
 </head>
 <body>
-<a href="form.php">B</a>
+<a href="form.php">Back</a>
 <?php
 
 	function display($var){

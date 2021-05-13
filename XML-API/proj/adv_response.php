@@ -18,7 +18,7 @@
 	</style>
 </head>
 <body>
-<a href="form.php">B</a>
+<a href="form.php">Back</a>
 <?php
 	if (isset($_GET['text'])&&($_GET['category'])){
 		$searchtext = rawurlencode($_GET['text']);
