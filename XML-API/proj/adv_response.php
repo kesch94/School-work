@@ -1,19 +1,31 @@
 <html>
 <head>
 	<style>
+	body{
+			background-color:lightgreen;
+
+		}
 		.main{
 			border: 3px solid black;
 			border-collapse: collapse;
 		}
 		.row{
 			border: 1px solid black;
-			background-color: #ffc;
+			background-color: lightblue;
 		}
 		.head{
 			border: 3px solid black;
 			font-size: 20px;
 			font-weight: bold;
-			background-color: #f2f2f2;
+			background-color: lightblue;
+		}
+		table{
+			background-color: lightblue;
+			color:blue;
+		
+		}
+		h1{
+			color: purple;
 		}
 	</style>
 </head>

@@ -1,4 +1,36 @@
 <html>
+<head>
+	<style>
+		body{
+			background-color:lightgreen;
+
+		}
+		.main{
+			border: 3px solid black;
+			border-collapse: collapse;
+			text-align:
+		}
+		.row{
+			border: 1px solid black;
+			background-color: lightblue;
+		}
+		.head{
+			border: 3px solid black;
+			font-size: 20px;
+			font-weight: bold;
+			background-color: lightblue;
+		}
+		table{
+			background-color: lightblue;
+			color:blue;
+			height: auto;
+			width: auto;
+		}
+		h1{
+			color: purple;
+		}
+	</style>
+</head>
 <body>
 <h1>Bookservice</h1>
 <table style="border: 1px solid black">
