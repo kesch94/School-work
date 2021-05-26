@@ -1,7 +1,14 @@
 <html>
 <head>
 	<style>
-	body{
+		.main{
+			border: 3px solid black;
+			border-collapse: collapse;
+		}
+		.row{
+			border: 3px solid black;
+		}
+		body{
 			background-color:lightgreen;
 
 		}
@@ -22,7 +29,6 @@
 		table{
 			background-color: lightblue;
 			color:blue;
-		
 		}
 		h1{
 			color: purple;

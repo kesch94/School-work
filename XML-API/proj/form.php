@@ -1,6 +1,13 @@
 <html>
 <head>
 	<style>
+		.main{
+			border: 3px solid black;
+			border-collapse: collapse;
+		}
+		.row{
+			border: 3px solid black;
+		}
 		body{
 			background-color:lightgreen;
 
@@ -8,7 +15,6 @@
 		.main{
 			border: 3px solid black;
 			border-collapse: collapse;
-			text-align:
 		}
 		.row{
 			border: 1px solid black;
@@ -23,8 +29,6 @@
 		table{
 			background-color: lightblue;
 			color:blue;
-			height: auto;
-			width: auto;
 		}
 		h1{
 			color: purple;
