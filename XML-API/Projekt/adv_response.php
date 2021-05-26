@@ -7,18 +7,30 @@
 		}
 		.row{
 			border: 1px solid black;
-			background-color: #ffc;
+			background-color: lightgreen;
 		}
 		.head{
 			border: 3px solid black;
 			font-size: 20px;
 			font-weight: bold;
-			background-color: #f2f2f2;
+			background-color: green;
 		}
+		body {
+			background-color: lightgreen; 
+		}
+		h1{
+			color:purple;
+		}
+		h2{
+			color:purple;
+		}
+		table {
+			color: black;
+		}	
 	</style>
 </head>
 <body>
-<a href="form.php">B</a>
+<a href="form.php">Back</a>
 <?php
 	if (isset($_GET['text'])&&($_GET['category'])){
 		$searchtext = rawurlencode($_GET['text']);

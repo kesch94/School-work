@@ -1,22 +1,36 @@
 <html>
 <head>
-	<style>
+<style>
 		.main{
 			border: 3px solid black;
 			border-collapse: collapse;
 		}
 		.row{
 			border: 1px solid black;
+			background-color: lightgreen;
 		}
 		.head{
 			border: 3px solid black;
 			font-size: 20px;
 			font-weight: bold;
+			background-color: green;
+		}
+		body {
+			background-color: lightgreen; 
+		}
+		h1{
+			color:purple;
+		}
+		h2{
+			color:purple;
+		}
+		table {
+			color: black;
 		}
 	</style>
 </head>
 <body>
-<a href="form.php">B</a>
+<a href="form.php">Back</a>
 <?php
 
 	function display($var){
