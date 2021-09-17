@@ -17,6 +17,6 @@ catch (Exception $e) {
 
 curl_setopt($ch,CURLOPT_POST, true);
 
-curl_setopt($ch,CURLOPT_POSTFIELD, '{"usr":"c20antka@student.his.se","pwd":"S79lal80!!!")}');
+curl_setopt($ch,CURLOPT_POSTFIELD, '{"usr":"c20antka@student.his.se","pwd":"*********")}');
 
 ?>
