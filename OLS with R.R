@@ -16,3 +16,6 @@ ggplot(data = CPS1988, mapping = aes(x = factor(education), y = log(wage))) +
   theme_minimal()
 data_cps <- with(data = CPS1988,
                  subset(x = CPS1988, subset = experience > 1 & education > 1))
+summary(data_cps)
+hist(data_cps$education)
+
