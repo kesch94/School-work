@@ -1,0 +1,18 @@
+az webapp config appsettings set \
+    --resource-group learn-fa2402fa-0fc8-4df8-9b58-800771bbd09e \
+    --name bajskukfitta \
+    --settings 'VaultName=bajskukfitta'
+
+
+    az keyvault set-policy \
+    --secret-permissions get list \
+    --name bajskukfitta \
+    --object-bajskukfitta
+
+    dotnet publish -o pub
+zip -j site.zip pub/*
+
+az webapp deployment source config-zip \
+    --src site.zip \
+    --resource-group learn-fa2402fa-0fc8-4df8-9b58-800771bbd09e \
+    --name bajskukfitta
