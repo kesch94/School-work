@@ -118,3 +118,12 @@ insert into Avdelning(Namn,IdNr,AvdelningNummer) values ('Anders Andersson','123
 insert into Avdelning(Namn,IdNr,AvdelningNummer) values ('Gundhe Svan','186547-0505-5-123456239','1');
 
 
+CREATE USER 'Anton Karlsson'@'localhost' IDENTIFIED BY '133737-0205-8-123456789';
+
+CREATE ROLE r1;
+GRANT r1 TO Anton Karlsson@localhost;
+GRANT SELECT, INSERT,UPDATE ON db1.* TO r1;
+
+
+
+
