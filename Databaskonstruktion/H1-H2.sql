@@ -117,30 +117,32 @@ insert into Avdelning(Namn,IdNr,AvdelningNummer) values ('Peter Petersson','3627
 insert into Avdelning(Namn,IdNr,AvdelningNummer) values ('Anders Andersson','123737-1224-6-987654321','2');
 insert into Avdelning(Namn,IdNr,AvdelningNummer) values ('Gundhe Svan','186547-0505-5-123456239','1');
 
+/* Indexering */
+INDEX FOR QUERY SELECT * FROM Tomtenisse WHERE Namn="Anton Karlsson";       
+CREATE INDEX ANTONSINFO ON TomtenisseROW(Namn ASC) USING BTREE;
 
-CREATE USER 'Anton Karlsson'@'localhost' IDENTIFIED BY '133737-0205-8-123456789';
+/*View*/
+CREATE VIEW TOMTENISSAR 
+AS SELECT Tomtenisse.Namn,Tomtenisse.IdNr,Tomtenisse.LonNotter,Tomtenisse.LonRussin,Tomtenisse.AdressBarack,Tomtenisse.AdressSangNr,Byggare.Kladfarg,Mellanchef.Skostorlek,Handlaggare.Knatoffsar,Informator.Mossfarg 
+FROM Tomtenisse,Mellanchef,Handlaggare,Informator,Byggare 
+WHERE Tomtenisse.IdNr=Byggare.IdNr,Tomtenisse.IdNr=Mellanchef.IdNr,Tomtenisse.IdNr=Handlaggare.IdNr,Tomtenisse.IdNr=Informator.IdNr;
 
-CREATE ROLE r1;
-GRANT r1 TO Anton Karlsson@localhost;
-GRANT SELECT, INSERT,UPDATE ON db1.* TO r1;
+/*TEST VIEW**/
+CREATE VIEW ALLANISSAR AS SELECT * FROM Tomtenisse 
+WHERE (IdNr LIKE '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]') WITH CHECK OPTION;
+
+/*CREATE USER*/
+CREATE USER 'Mellanchef"@'localhost" Identified BY 'mypass";
+CREATE USER 'Byggare"@'localhost" Identified BY 'mypass";
+CREATE USER 'Informator"@'localhost" Identified BY 'mypass";
+CREATE USER 'Handlaggare"@'localhost" Identified BY 'mypass";
+
+/*GRANT*/
+GRANT SELECT ON Handlaggare.Tomtenisse TO tomtesystem;
+GRANT SELECT ON Mellanchef.Tomtenisse TO tomtesystem;
 
 
-INDEX FOR QUERY SELECT * FROM INVOICEROW WHERE CUSTNO="XXX";       
-CREATE INDEX CUSTOMERINVOICES ON INVOICEROW(CUSTNO ASC) USING BTREE;
-INDEX FOR QUERY SELECT * FROM CUSTOMER ORDER BY NAME;       
-CREATE INDEX CUSTOMERNAMES ON CUSTOMER(NAME ASC) USING BTREE;
-
-CREATE VIEW CUSTOMERINVOICE AS    SELECT CUSTOMER.CUSTNO,CUSTOMER.NAME,CUSTOMER.SSN,CUSTOMER.REGDATE,INVOICEROW.INVOICENO,INVOICEROW.DATEPAID,INVOICEROW.NUMBER,INVOICEROW.PRODUCT,INVOICEROW.COMPANY,INVOICEROW.COST    FROM CUSTOMER,INVOICEROW WHERE CUSTOMER.CUSTNO=INVOICEROW.CUSTNO
-UNION
-SELECT CUSTOMER.CUSTNO,CUSTOMER.NAME,CUSTOMER.SSN,CUSTOMER.REGDATE,PAIDINVOICEROW.INVOICENO,PAIDINVOICEROW.DATEPAID,PAIDINVOICEROW.NUMBER,PAIDIN
-
-CREATE VIEW PRODUCTSTATISTICS AS
-SELECT PRODUCTNAME,AVG(COST) AS AVGCOST
-FROM INVOICEROW,PRODUCT
-WHERE INVOICEROW.PRODUCT=PRODUCT.PRODUCTCODE
-GROUP BY PRODUCT;
-
- 
+/*
 -- Create a user for the economy system application
 CREATE USER 'economysystem"@'localhost" IDENTIFIED BY 'mypass";
 -- Gives select access to COMPANY table to the economysystem
@@ -149,10 +151,16 @@ GRANT SELECT ON a00leifo.COMPANY TO economysystem;
 CREATE VIEW ECONOMYCUSTOMERS AS SELECT CUSTNO,SSN,NAME,REGDATE FROM CUSTOMER;
 -- Gives select on all parts of customer except for password to economysystem
 GRANT SELECT ON a00leifo.ECONOMYCUSTOMERS to economysystem;
+*/
+ 
+ /*
+CREATE VIEW PRODUCTSTATISTICS AS
+SELECT PRODUCTNAME,AVG(COST) AS AVGCOST
+FROM INVOICEROW,PRODUCT
+WHERE INVOICEROW.PRODUCT=PRODUCT.PRODUCTCODE
+GROUP BY PRODUCT; 
+*/
 
-CREATE VIEW COMPANYCOMMENTS AS                                  
-SELECT COMPANYNAME,COMMENT FROM COMPANY,INVOICEROW,INVOICEROWCOMMENT    
 
-CREATE VIEW CHECKCUSTOMER AS SELECT * FROM CUSTOMER WHERE (SSN LIKE '[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]") WITH CHECK OPTION;
-GRANT INSERT ON a00leifo.COMPANY TO economysystem;
+
 
